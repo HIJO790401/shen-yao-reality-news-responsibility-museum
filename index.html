@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>沈耀國際實相新聞台 × 責任博物館</title>
+  <meta name="description" content="沈耀國際實相新聞台 × 責任博物館，結合新聞播報、責任審計、數位館藏與文明回放。" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body data-depth=".">
+  <main>
+    <section class="hero">
+      <div class="hero-content fade-in">
+        <h1 id="site-title-zh">沈耀國際實相新聞台 × 責任博物館
+          <span id="site-title-en">Shen-Yao International Reality News Network × Responsibility Museum</span>
+        </h1>
+        <p id="hero-sub-zh">一個結合新聞播報、責任審計、數位館藏與文明回放的公共界面。</p>
+        <p id="hero-sub-en">A public interface combining news reporting, responsibility audit, digital archives, and civilizational replay.</p>
+        <div class="btn-row">
+          <a class="btn primary" href="reports.html">進入新聞台 Reports</a>
+          <a class="btn secondary" href="museum.html">進入責任博物館 Museum</a>
+          <a class="btn secondary" href="anchors.html">認識十四軸 Anchors</a>
+          <a class="btn ghost" href="https://hijo790401.github.io/shen-yao-portal/" target="_blank" rel="noopener noreferrer">官方網站 Official Portal</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2 fade-in">
+        <article class="card"><p class="kicker">Platform Intro</p><h2>平台簡介</h2><p id="intro-zh"></p><p class="meta" id="intro-en"></p></article>
+        <article class="card alert"><p class="kicker">Editorial Note</p><h2>責任與發布主軸</h2><p id="editorial-zh"></p><p class="meta" id="editorial-en"></p></article>
+      </div>
+    </section>
+
+    <section class="section"><div class="container fade-in"><h2>最新報導預覽 Latest Reports</h2><div id="home-reports" class="grid-3"></div></div></section>
+    <section class="section"><div class="container fade-in"><h2>館藏精選預覽 Museum Highlights</h2><div id="home-museum" class="grid-3"></div></div></section>
+    <section class="section"><div class="container fade-in"><h2>十四軸主播精選 Featured Anchors</h2><div id="home-anchors" class="grid-4"></div></div></section>
+
+    <section class="section"><div class="container grid-2 fade-in">
+      <article class="card"><h2>創辦人精選 Founder</h2><p id="home-founder"></p><a class="btn primary" href="founder.html">進入 Founder</a></article>
+      <article class="card"><h2>公開導覽 CTA</h2><p>先讀導覽頁，再進入報導／館藏與十四軸角色頁，建立完整閱讀脈絡。</p><a class="btn secondary" href="guide.html">開始導覽 Guide</a></article>
+    </div></section>
+  </main>
+  <script src="js/ui.js"></script><script src="js/cms-data.js"></script><script src="js/main.js"></script>
+  <script>
+  (async()=>{try{
+    const site=await loadJson('data/site.json'); const home=await loadJson('data/home.json');
+    document.getElementById('site-title-zh').childNodes[0].nodeValue=site.name_zh;
+    document.getElementById('site-title-en').textContent=site.name_en;
+    document.getElementById('hero-sub-zh').textContent=site.hero_subtitle_zh;
+    document.getElementById('hero-sub-en').textContent=site.hero_subtitle_en;
+    document.getElementById('intro-zh').textContent=home.platform_intro_zh;
+    document.getElementById('intro-en').textContent=home.platform_intro_en;
+    document.getElementById('editorial-zh').textContent=home.editorial_note_zh;
+    document.getElementById('editorial-en').textContent=home.editorial_note_en;
+
+    const [reports,museum,anchors,founder]=await Promise.all([loadCollection('content/reports'),loadCollection('content/museum'),loadCollection('content/anchors'),loadCollection('content/founder')]);
+    const reportsBox=document.getElementById('home-reports');
+    reports.sort((a,b)=>new Date(b.date)-new Date(a.date));
+    reportsBox.innerHTML=reports.slice(0,3).map(r=>`<article class="card"><span class="badge">${r.category||'Report'}</span><h3>${r.title_zh}</h3><p>${r.summary_zh}</p><a class="btn secondary" href="reports.html">閱讀</a></article>`).join('');
+    document.getElementById('home-museum').innerHTML=museum.slice(0,3).map(m=>`<article class="card"><h3>${m.title_zh}</h3><p>${m.subtitle_zh}</p></article>`).join('');
+    document.getElementById('home-anchors').innerHTML=anchors.filter(a=>home.featured_anchor_slugs.includes(a.slug)).map(a=>`<article class="card profile-card"><img src="${a.image}" alt="${a.name_zh}"><h3>${a.name_zh} ${a.name_en}</h3><p>${a.role_zh}</p></article>`).join('');
+    document.getElementById('home-founder').textContent=`${founder[0].name_zh}｜${founder[0].identity_zh}`;
+  }catch(e){console.error(e);}})();
+  </script>
+</body>
+</html>

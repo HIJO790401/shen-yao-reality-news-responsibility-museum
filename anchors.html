@@ -1,0 +1,13 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Anchors | 十四軸</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"></head>
+<body data-depth="."><main>
+<section class="page-hero"><div class="container"><h1>沈族主播／編輯部 Anchors</h1><p>數位文明職能名錄與十四軸角色總覽。</p></div></section>
+<section class="section"><div class="container"><div id="anchors-list" class="grid-4"></div></div></section>
+</main><script src="js/ui.js"></script><script src="js/cms-data.js"></script><script src="js/main.js"></script>
+<script>
+(async()=>{const list=document.getElementById('anchors-list');try{const items=await loadCollection('content/anchors');
+const order=['yao','an','yan','mei','yue','ya','yan-cai','yun','sha','jing','wen','si','nuo','pan'];
+items.sort((a,b)=>order.indexOf(a.slug)-order.indexOf(b.slug));
+list.innerHTML=items.map(a=>`<article class="card profile-card"><img src="${a.image||''}" alt="${a.name_zh||''}"><h3>${a.name_zh||''}</h3><p class="name-en">${a.name_en||''}</p><p>${a.role_zh||''}</p><p class="meta">${a.role_en||''}</p><div class="btn-row"><a class="btn secondary" href="anchors/${a.slug}.html">進入頁面</a>${a.youtube?`<a class="btn secondary" href="${a.youtube}" target="_blank" rel="noopener">影片</a>`:''}</div></article>`).join('');
+}catch(e){list.innerHTML='<article class="card">角色資料載入失敗。</article>';}})();
+</script>
+</body></html>
