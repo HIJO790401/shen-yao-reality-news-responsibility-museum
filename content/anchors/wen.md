@@ -7,5 +7,5 @@ role_en: Inquiry Lead
 bio_zh: 透過提問框架追索責任斷點與因果鏈。
 bio_en: Uses inquiry frameworks to trace responsibility gaps and causal links.
 image: /assets/images/沈問問之域.jpg
-youtube: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+youtube: https://www.tiktok.com/@shenyao888pi/video/7591226114119372052?is_from_webapp=1&sender_device=pc&web_id=7626529807937734164
 ---
