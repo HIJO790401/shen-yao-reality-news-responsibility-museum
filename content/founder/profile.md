@@ -11,5 +11,5 @@ email: ken0963521@gmail.com
 phone: 0905851391
 website: https://hijo790401.github.io/shen-yao-portal/
 image: /assets/images/沈耀主核.jpg
-youtube: https://www.youtube.com/watch?v=3JZ_D3ELwOQ
+youtube: https://youtu.be/xROrsIHToIY?si=cwR-yAUw4eEMjzeZ
 ---
