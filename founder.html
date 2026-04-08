@@ -1,0 +1,18 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Founder | 許文耀／沈耀888π</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"></head>
+<body data-depth="."><main>
+<section class="page-hero"><div class="container"><h1>創辦人 Founder</h1><p id="founder-name">許文耀／沈耀888π</p></div></section>
+<section class="section"><div id="founder-content" class="container grid-2"></div></section>
+</main><script src="js/ui.js"></script><script src="js/cms-data.js"></script><script src="js/main.js"></script>
+<script>
+(async()=>{const wrap=document.getElementById('founder-content');try{const f=(await loadCollection('content/founder'))[0];
+document.getElementById('founder-name').textContent=`${f.name_zh} / ${f.name_en}`;
+const embed=youtubeEmbed(f.youtube);
+wrap.innerHTML=`<article class="card profile-card"><img src="${f.image}" alt="創辦人照片"><h3>${f.name_zh}</h3><p>${f.name_en}</p></article>
+<article class="card"><h3>身份區 Identity</h3><ul class="inline-list"><li>地點：${f.location_zh}</li><li>Location: ${f.location_en}</li><li>${f.identity_zh}</li><li>${f.identity_en}</li></ul></article>
+<article class="card"><h3>宣言 Statement</h3><p>${f.statement_zh}</p><p>${f.statement_en}</p></article>
+<article class="card"><h3>聯絡 Contact</h3><p>Email：<a href="mailto:${f.email}">${f.email}</a></p><p>電話：<a href="tel:${f.phone}">${f.phone}</a></p></article>
+<article class="card"><h3>外部連結</h3><a class="btn primary" href="${f.website}" target="_blank" rel="noopener noreferrer">官方網站 Official Portal</a></article>
+<article class="card"><h3>影片區</h3>${embed?`<iframe width="100%" height="250" src="${embed}" title="Founder video" frameborder="0" allowfullscreen></iframe>`:'<div class="placeholder-video">Founder YouTube placeholder iframe</div>'}</article>`;
+}catch(e){wrap.innerHTML='<article class="card">創辦人資料載入失敗。</article>';}})();
+</script>
+</body></html>

@@ -1,0 +1,20 @@
+<!doctype html><html lang="zh-Hant"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reports | 沈耀國際實相新聞台</title>
+<link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"></head>
+<body data-depth="."><main>
+<section class="page-hero"><div class="container"><h1>新聞台 Reports</h1><p>國際實相新聞、責任審計報導與高危追蹤專區。</p></div></section>
+<section class="section"><div class="container">
+<h2>文章列表 Article Feed</h2><div id="reports-list" class="grid-3"></div>
+</div></section>
+<section class="section"><div class="container"><h2>單篇文章頁骨架 Template</h2>
+<article class="card"><h3>article.html 結構預覽</h3><ul><li>標題／副標／日期與分類</li><li>封面圖位置</li><li>內文段落與引言</li><li>影片嵌入區塊</li></ul><div class="placeholder-video">YouTube iframe placeholder</div></article>
+</div></section>
+</main><script src="js/ui.js"></script><script src="js/cms-data.js"></script><script src="js/main.js"></script>
+<script>
+(async()=>{const list=document.getElementById('reports-list');try{const items=await loadCollection('content/reports');
+items.sort((a,b)=>new Date(b.date)-new Date(a.date));
+list.innerHTML=items.map(r=>`<article class="card"><div class="thumb">${r.cover?`<img src="${r.cover}" alt="${r.title_zh||''}" style="width:100%;height:100%;object-fit:cover;">`:''}</div><p class="meta">${r.date||''}｜分類：${r.category||''}</p><h3>${r.title_zh||''}</h3><p>${r.title_en||''}</p><p>${r.summary_zh||''}</p><p class="meta">${r.summary_en||''}</p><div class="btn-row"><a class="btn secondary" href="article.html">閱讀詳情</a>${r.youtube?`<a class="btn secondary" href="${r.youtube}" target="_blank" rel="noopener">影片</a>`:''}</div></article>`).join('');
+}catch(e){list.innerHTML='<article class="card">內容載入失敗，請稍後重試。</article>';}})();
+</script>
+</body></html>
