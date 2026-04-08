@@ -1,10 +1,44 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>眼 | Anchors</title><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/responsive.css"></head>
+<!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>yan | Anchors</title><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/responsive.css"></head>
 <body data-depth=".."><main>
-<section class="page-hero"><div class="container"><h1>眼 Yan</h1><p>十四軸角色個別頁骨架。</p></div></section>
-<section class="section"><div class="container grid-2">
-<article class="card profile-card"><img src="../assets/images/沈眼破虛.jpg" alt="眼"><h3>眼／Yan</h3><p>職位：破虛核實</p></article>
-<article class="card"><h3>角色職責 Role Scope</h3><p>此區放置正式職責、播報規範與編輯流程說明 placeholder。</p><h3>責任對齊 Responsibility</h3><p>此區放置與主核發布之對齊機制 placeholder。</p></article>
-<article class="card"><h3>相關報導</h3><ul class="inline-list"><li>報導占位連結 01</li><li>報導占位連結 02</li><li>報導占位連結 03</li></ul></article>
-<article class="card"><h3>影片區</h3><div class="placeholder-video">YouTube Embed Placeholder iframe</div></article>
-</div></section>
-</main><script src="../js/ui.js"></script><script src="../js/main.js"></script></body></html>
+<section class="page-hero"><div class="container"><h1 id="anchor-title">yan</h1><p>十四軸角色個別頁骨架。</p></div></section>
+<section class="section"><div id="anchor-content" class="container grid-2"></div></section>
+</main><script src="../js/ui.js"></script><script src="../js/cms-data.js"></script><script src="../js/main.js"></script>
+<script>
+(async()=>{
+  const slug='yan';
+  const wrap=document.getElementById('anchor-content');
+  try{
+    const items=await loadCollection('content/anchors');
+    const a=items.find(i=>i.slug===slug);
+    if(!a) throw new Error('not found');
+    const embed=youtubeEmbed(a.youtube);
+    document.getElementById('anchor-title').textContent = `${a.name_zh} ${a.name_en}`;
+    wrap.innerHTML = `
+      <article class="card profile-card">
+        <img src="${a.image}" alt="${a.name_zh}">
+        <h3>${a.name_zh}／${a.name_en}</h3>
+        <p>職位：${a.role_zh}</p>
+        <p class="meta">${a.role_en}</p>
+      </article>
+      <article class="card">
+        <h3>角色職責 Role Scope</h3>
+        <p>${a.bio_zh}</p>
+        <p>${a.bio_en}</p>
+      </article>
+      <article class="card">
+        <h3>相關報導</h3>
+        <ul class="inline-list">
+          <li>可於 Reports 按分類追蹤此角色相關報導。</li>
+          <li>Follow related reports in the Reports section by category.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>影片區</h3>
+        ${embed ? `<iframe width="100%" height="250" src="${embed}" title="Anchor video" frameborder="0" allowfullscreen></iframe>` : '<div class="placeholder-video">YouTube Embed Placeholder iframe</div>'}
+      </article>`;
+  }catch(e){
+    wrap.innerHTML='<article class="card">角色資料載入失敗。</article>';
+  }
+})();
+</script>
+</body></html>

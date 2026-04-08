@@ -1,16 +1,15 @@
 <!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Museum | 責任博物館</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"></head>
 <body data-depth="."><main>
 <section class="page-hero"><div class="container"><h1>責任博物館 Museum</h1><p>館別索引、館藏編目與導覽入口。</p></div></section>
-<section class="section"><div class="container"><h2>館別列表</h2><div class="grid-4">
-<div class="card">能力幻覺館</div><div class="card">責任蒸發館</div><div class="card">安全債館</div><div class="card">假專業館</div><div class="card">文明殘骸館</div><div class="card">高危標本館</div><div class="card">終審廳</div></div></div></section>
-<section class="section"><div class="container"><h2>館藏卡片 Collections</h2><div class="grid-3">
-<article class="card"><div class="thumb"></div><p class="meta">館藏編號: RM-A001</p><h3>館藏標題 Placeholder 01</h3><p>副標：能力幻覺館標本。</p><div class="btn-row"><a class="btn secondary" href="guide.html">導覽</a><a class="btn secondary" href="#">影片</a></div></article>
-<article class="card"><div class="thumb"></div><p class="meta">館藏編號: RM-E002</p><h3>館藏標題 Placeholder 02</h3><p>副標：責任蒸發館標本。</p><div class="btn-row"><a class="btn secondary" href="guide.html">導覽</a><a class="btn secondary" href="#">影片</a></div></article>
-<article class="card"><div class="thumb"></div><p class="meta">館藏編號: RM-S003</p><h3>館藏標題 Placeholder 03</h3><p>副標：安全債館標本。</p><div class="btn-row"><a class="btn secondary" href="guide.html">導覽</a><a class="btn secondary" href="#">影片</a></div></article>
-<article class="card"><div class="thumb"></div><p class="meta">館藏編號: RM-F004</p><h3>館藏標題 Placeholder 04</h3><p>副標：假專業館標本。</p><div class="btn-row"><a class="btn secondary" href="guide.html">導覽</a><a class="btn secondary" href="#">影片</a></div></article>
-<article class="card"><div class="thumb"></div><p class="meta">館藏編號: RM-C005</p><h3>館藏標題 Placeholder 05</h3><p>副標：文明殘骸館標本。</p><div class="btn-row"><a class="btn secondary" href="guide.html">導覽</a><a class="btn secondary" href="#">影片</a></div></article>
-<article class="card"><div class="thumb"></div><p class="meta">館藏編號: RM-Z007</p><h3>館藏標題 Placeholder 06</h3><p>副標：終審廳標本。</p><div class="btn-row"><a class="btn secondary" href="guide.html">導覽</a><a class="btn secondary" href="#">影片</a></div></article>
-</div>
-<div class="placeholder-video" style="margin-top:1rem;">Museum YouTube placeholder iframe</div>
+<section class="section"><div class="container"><h2>館別列表</h2><div id="hall-list" class="grid-4"></div></div></section>
+<section class="section"><div class="container"><h2>館藏卡片 Collections</h2><div id="museum-list" class="grid-3"></div>
+<div id="museum-video" class="placeholder-video" style="margin-top:1rem;">Museum YouTube placeholder iframe</div>
 </div></section>
-</main><script src="js/ui.js"></script><script src="js/main.js"></script></body></html>
+</main><script src="js/ui.js"></script><script src="js/cms-data.js"></script><script src="js/main.js"></script>
+<script>
+(async()=>{const hall=document.getElementById('hall-list');const list=document.getElementById('museum-list');try{const items=await loadCollection('content/museum');
+const halls=[...new Set(items.map(i=>i.hall_zh).filter(Boolean))]; hall.innerHTML=halls.map(h=>`<div class="card">${h}</div>`).join('');
+list.innerHTML=items.map(m=>`<article class="card"><div class="thumb">${m.cover?`<img src="${m.cover}" alt="${m.title_zh}" style="width:100%;height:100%;object-fit:cover;">`:''}</div><p class="meta">館藏編號: ${m.id||''}</p><h3>${m.title_zh||''}</h3><p>${m.title_en||''}</p><p>${m.subtitle_zh||''}</p><p class="meta">${m.subtitle_en||''}</p><div class="btn-row"><a class="btn secondary" href="guide.html">導覽</a>${m.youtube?`<a class="btn secondary" target="_blank" rel="noopener" href="${m.youtube}">影片</a>`:''}</div></article>`).join('');
+}catch(e){hall.innerHTML='<div class="card">載入失敗</div>';list.innerHTML='<article class="card">內容載入失敗</article>';}})();
+</script>
+</body></html>
