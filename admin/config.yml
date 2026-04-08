@@ -2,9 +2,8 @@ backend:
   name: github
   repo: HIJO790401/shen-yao-reality-news-responsibility-museum
   branch: main
-  site_domain: shen-yao-reality-news-responsibility-museum.netlify.app
   base_url: https://auth.decapbridge.com
-  auth_endpoint: auth
+  auth_endpoint: /auth
 
 media_folder: "public/assets/uploads"
 public_folder: "/assets/uploads"
