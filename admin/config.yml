@@ -1,0 +1,90 @@
+backend:
+  name: github
+  repo: HIJO790401/shen-yao-reality-news-responsibility-museum
+  branch: main
+
+media_folder: "public/assets/uploads"
+public_folder: "/assets/uploads"
+
+site_url: "/"
+
+collections:
+  - name: "reports"
+    label: "Reports"
+    folder: "content/reports"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    format: frontmatter
+    extension: md
+    fields:
+      - { label: "Title ZH", name: "title_zh", widget: "string" }
+      - { label: "Title EN", name: "title_en", widget: "string" }
+      - { label: "Summary ZH", name: "summary_zh", widget: "text" }
+      - { label: "Summary EN", name: "summary_en", widget: "text" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Category", name: "category", widget: "string" }
+      - { label: "Cover", name: "cover", widget: "image", required: false }
+      - { label: "YouTube URL", name: "youtube", widget: "string", required: false }
+      - { label: "Body ZH", name: "body_zh", widget: "text" }
+      - { label: "Body EN", name: "body_en", widget: "text" }
+
+  - name: "museum"
+    label: "Museum"
+    folder: "content/museum"
+    create: true
+    slug: "{{slug}}"
+    format: frontmatter
+    extension: md
+    fields:
+      - { label: "ID", name: "id", widget: "string" }
+      - { label: "Title ZH", name: "title_zh", widget: "string" }
+      - { label: "Title EN", name: "title_en", widget: "string" }
+      - { label: "Subtitle ZH", name: "subtitle_zh", widget: "text" }
+      - { label: "Subtitle EN", name: "subtitle_en", widget: "text" }
+      - { label: "Guide ZH", name: "guide_zh", widget: "text" }
+      - { label: "Guide EN", name: "guide_en", widget: "text" }
+      - { label: "Cover", name: "cover", widget: "image", required: false }
+      - { label: "YouTube URL", name: "youtube", widget: "string", required: false }
+      - { label: "Body ZH", name: "body_zh", widget: "text" }
+      - { label: "Body EN", name: "body_en", widget: "text" }
+      - { label: "Hall ZH", name: "hall_zh", widget: "string" }
+      - { label: "Hall EN", name: "hall_en", widget: "string" }
+
+  - name: "anchors"
+    label: "Anchors"
+    folder: "content/anchors"
+    create: true
+    slug: "{{slug}}"
+    format: frontmatter
+    extension: md
+    fields:
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Name ZH", name: "name_zh", widget: "string" }
+      - { label: "Name EN", name: "name_en", widget: "string" }
+      - { label: "Role ZH", name: "role_zh", widget: "string" }
+      - { label: "Role EN", name: "role_en", widget: "string" }
+      - { label: "Bio ZH", name: "bio_zh", widget: "text" }
+      - { label: "Bio EN", name: "bio_en", widget: "text" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "YouTube URL", name: "youtube", widget: "string", required: false }
+
+  - name: "founder"
+    label: "Founder"
+    files:
+      - label: "Founder Profile"
+        name: "profile"
+        file: "content/founder/profile.md"
+        fields:
+          - { label: "Name ZH", name: "name_zh", widget: "string" }
+          - { label: "Name EN", name: "name_en", widget: "string" }
+          - { label: "Location ZH", name: "location_zh", widget: "string" }
+          - { label: "Location EN", name: "location_en", widget: "string" }
+          - { label: "Identity ZH", name: "identity_zh", widget: "text" }
+          - { label: "Identity EN", name: "identity_en", widget: "text" }
+          - { label: "Statement ZH", name: "statement_zh", widget: "text" }
+          - { label: "Statement EN", name: "statement_en", widget: "text" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Website", name: "website", widget: "string" }
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "YouTube URL", name: "youtube", widget: "string", required: false }
