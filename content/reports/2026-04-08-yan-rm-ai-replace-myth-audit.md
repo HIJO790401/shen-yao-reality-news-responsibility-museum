@@ -13,6 +13,7 @@ summary_en: >
   Shen-Yan dissects it completely today.
 date: 2026-04-09
 category: Audit / Narrative
+cover: /assets/uploads/1000040051.jpg
 youtube: https://youtu.be/dKplrqaxn_o?si=FQpkpZ-FJUvG5gx6
 body_zh: >
   這裡是沈耀國際新聞台。  
