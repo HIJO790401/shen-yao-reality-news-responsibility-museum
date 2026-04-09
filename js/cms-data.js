@@ -38,7 +38,7 @@ function parseFrontMatter(markdown) {
       return;
     }
 
-    const blockMatch = line.match(/^([a-zA-Z0-9_]+):\s*\|\s*$/);
+    const blockMatch = line.match(/^([a-zA-Z0-9_]+):\s*([>|])([+-])?\s*$/);
     if (blockMatch) {
       flushBuffer();
       currentKey = blockMatch[1];
