@@ -16,13 +16,13 @@
 ## 如何新增文章（Reports）
 1. 進入 `/admin/` 並登入。
 2. 點選 `Reports` collection。
-3. 新增項目，填寫：`title_zh`, `title_en`, `summary_zh`, `summary_en`, `date`, `category`, `cover`, `youtube`, `body_zh`, `body_en`。
+3. 新增項目，填寫：`slug_key`（檔名短代碼，英文小寫/數字/連字號，6-80 字元）、`title_zh`, `title_en`, `summary_zh`, `summary_en`, `date`, `category`, `cover`, `youtube`, `body_zh`, `body_en`。
 4. 儲存後會寫入 `content/reports/*.md`。
 
 ## 如何新增館藏（Museum）
 1. 進入 `/admin/`。
 2. 點 `Museum` collection，新增條目。
-3. 填寫館藏編號、中英文標題/副標、導覽文、hall、封面與 YouTube。
+3. 填寫 `slug_key`（檔名短代碼，英文小寫/數字/連字號，6-80 字元）、館藏編號、中英文標題/副標、導覽文、hall、封面與 YouTube。
 4. 儲存後會寫入 `content/museum/*.md`。
 
 ## 如何修改十四軸角色資料
