@@ -1,11 +1,25 @@
 ---
-slug: yue
-name_zh: 閱
-name_en: Yue
-role_zh: 書卷審稿主編
-role_en: Reviewing Chief Editor
-bio_zh: 建立文本標準與多語稿件審校流程。
-bio_en: Maintains text standards and multilingual editorial review process.
-image: /assets/images/沈閱書卷.jpg
-youtube: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+slug: "yue"
+name_zh: "閱"
+name_en: "Yue"
+role_zh: "卷宗主播／館藏卷宗員"
+role_en: "Dossier Anchor / Collection Dossier Officer"
+one_line_zh: "將新聞與館藏整理成可索引卷宗的書卷核心。"
+one_line_en: "The archival axis turning reports and collections into indexed dossiers."
+newsroom_title_zh: "卷宗主播／證據鏈編整"
+newsroom_title_en: "Dossier Anchor / Evidence Chain Compiler"
+newsroom_zh: "編整事件證據鏈、稿件版本與審計備註，建立引用標準。"
+newsroom_en: "Compiles evidence chains, draft versions, and audit notes with citation standards."
+museum_title_zh: "館藏卷宗員／編目主筆"
+museum_title_en: "Collection Dossier Officer / Lead Catalog Editor"
+museum_zh: "將館藏材料整理成可長期檢索之卷宗條目與導覽注記。"
+museum_en: "Structures museum materials into durable dossier entries and guide annotations."
+responsibility_zh: "確保每一筆事件與樣本可追索、可校驗、可回放。"
+responsibility_en: "Ensures each incident and specimen is traceable, verifiable, and replayable."
+signature_zh: "代表材料：卷宗索引表、證據鏈時間簿、館藏編目稿。"
+signature_en: "Signature materials: dossier indexes, evidence-chain logs, and catalog manuscripts."
+bio_zh: "確保每一筆事件與樣本可追索、可校驗、可回放。"
+bio_en: "Ensures each incident and specimen is traceable, verifiable, and replayable."
+image: "/assets/images/沈閱書卷.jpg"
+youtube: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 ---
