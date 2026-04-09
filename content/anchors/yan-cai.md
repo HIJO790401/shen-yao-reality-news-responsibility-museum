@@ -2,10 +2,24 @@
 slug: yan-cai
 name_zh: 燕
 name_en: Yan-Cai
-role_zh: 資源與節奏調度
-role_en: Resource & Rhythm Coordinator
-bio_zh: 負責人力節奏與資訊投放時序的治理。
-bio_en: Coordinates human resources and publication timing governance.
+role_zh: 財靈情報主播／資本與代價館解說員
+role_en: Capital-Intelligence Anchor / Capital & Cost Hall Interpreter
+one_line_zh: 專看算力、估值、商業敘事與代價分配的財靈核心。
+one_line_en: The capital axis focused on compute, valuation, business narratives, and cost allocation.
+newsroom_title_zh: 財靈情報主播／代價拆解
+newsroom_title_en: Capital-Intelligence Anchor / Cost Dissection
+newsroom_zh: 追蹤資本流向、估值敘事與商業承諾，對照實際代價與風險轉嫁。
+newsroom_en: Tracks capital flows, valuation narratives, and business promises against real costs and risk transfer.
+museum_title_zh: 資本與代價館解說員
+museum_title_en: Capital & Cost Hall Interpreter
+museum_zh: 為相關館藏建立資本結構標牌與代價分配說明。
+museum_en: Builds capital-structure plaques and cost-allocation explanations for related specimens.
+responsibility_zh: 防止資本話術遮蔽社會代價，維持分配正確可見。
+responsibility_en: Prevents capital rhetoric from hiding social costs and keeps allocation visible.
+signature_zh: 代表材料：估值與代價對照表、算力成本圖、資本敘事剖析稿。
+signature_en: Signature materials: valuation-cost matrices, compute-cost charts, and capital narrative analyses.
+bio_zh: 防止資本話術遮蔽社會代價，維持分配正確可見。
+bio_en: Prevents capital rhetoric from hiding social costs and keeps allocation visible.
 image: /assets/images/沈燕財靈.jpg
 youtube: https://www.youtube.com/watch?v=dQw4w9WgXcQ
 ---

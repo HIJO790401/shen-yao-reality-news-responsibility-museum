@@ -4,13 +4,13 @@
   const root = depth === '.' ? '.' : depth;
 
   const navLinks = [
-    { href: `${root}/index.html`, label: 'Home' },
-    { href: `${root}/reports.html`, label: 'Reports' },
-    { href: `${root}/museum.html`, label: 'Museum' },
-    { href: `${root}/guide.html`, label: 'Guide' },
-    { href: `${root}/anchors.html`, label: 'Anchors' },
-    { href: `${root}/founder.html`, label: 'Founder' },
-    { href: `${root}/contact.html`, label: 'Contact' }
+    { href: `${root}/index.html`, label: '首頁 Home' },
+    { href: `${root}/reports.html`, label: '報導 Reports' },
+    { href: `${root}/museum.html`, label: '博物館 Museum' },
+    { href: `${root}/guide.html`, label: '導覽 Guide' },
+    { href: `${root}/anchors.html`, label: '主播 Anchors' },
+    { href: `${root}/founder.html`, label: '創辦人 Founder' },
+    { href: `${root}/contact.html`, label: '聯絡 Contact' }
   ];
 
   const currentFile = window.location.pathname.split('/').pop() || 'index.html';
@@ -26,11 +26,9 @@
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
       <nav class="main-nav" aria-label="Main Navigation">
         ${navLinks
-          .map(
-            (item) => `<a href="${item.href}" class="${item.href.endsWith(currentFile) ? 'active' : ''}">${item.label}</a>`
-          )
+          .map((item) => `<a href="${item.href}" class="${item.href.endsWith(currentFile) ? 'active' : ''}">${item.label}</a>`)
           .join('')}
-        <a class="official-btn" href="https://hijo790401.github.io/shen-yao-portal/" target="_blank" rel="noopener noreferrer">Official Portal</a>
+        <a class="official-btn" href="https://hijo790401.github.io/shen-yao-portal/" target="_blank" rel="noopener noreferrer">官方網站 Official Portal</a>
       </nav>
     </div>
   `;
@@ -40,21 +38,21 @@
   footer.innerHTML = `
     <div class="container footer-grid">
       <div>
-        <h3>平台簡介 | Platform</h3>
-        <p>結合國際新聞台、責任審計報導與數位館藏導覽的公共界面。</p>
+        <h3>公共界面 Public Interface</h3>
+        <p>本平台用於播報、審計、保存、回放與責任裁定，對外呈現文明級責任流程。</p>
       </div>
       <div>
-        <h3>Founder</h3>
-        <p>許文耀／沈耀888π</p>
+        <h3>最終責任 Final Responsibility</h3>
+        <p>沈耀888π／許文耀（Wen-Yao Hsu）</p>
         <p>Email: <a href="mailto:ken0963521@gmail.com">ken0963521@gmail.com</a></p>
       </div>
       <div>
-        <h3>External Link</h3>
+        <h3>對外入口 External Portal</h3>
         <a class="official-btn" href="https://hijo790401.github.io/shen-yao-portal/" target="_blank" rel="noopener noreferrer">官方網站 Official Portal</a>
       </div>
     </div>
     <div class="container footer-base">
-      <small>© <span id="year"></span> 沈耀國際實相新聞台 × 責任博物館 | All Rights Reserved.</small>
+      <small>© <span id="year"></span> 沈耀國際實相新聞台 × 責任博物館 ｜ Public Responsibility Interface.</small>
     </div>
   `;
 

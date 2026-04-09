@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>沈耀國際實相新聞台 × 責任博物館</title>
-  <meta name="description" content="沈耀國際實相新聞台 × 責任博物館，結合新聞播報、責任審計、數位館藏與文明回放。" />
+  <meta name="description" content="沈耀國際實相新聞台 × 責任博物館，結合播報、審計、館藏、回放與責任裁定的公共界面。" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
 </head>
@@ -15,12 +15,12 @@
         <h1 id="site-title-zh">沈耀國際實相新聞台 × 責任博物館
           <span id="site-title-en">Shen-Yao International Reality News Network × Responsibility Museum</span>
         </h1>
-        <p id="hero-sub-zh">一個結合新聞播報、責任審計、數位館藏與文明回放的公共界面。</p>
-        <p id="hero-sub-en">A public interface combining news reporting, responsibility audit, digital archives, and civilizational replay.</p>
-        <div class="btn-row">
+        <p id="hero-sub-zh" class="lead">一個面向公共世界的文明責任界面。</p>
+        <p id="hero-sub-en">A civilizational interface for public reporting, accountability, and long-term replay.</p>
+        <div class="btn-row" style="justify-content:center;">
           <a class="btn primary" href="reports.html">進入新聞台 Reports</a>
-          <a class="btn secondary" href="museum.html">進入責任博物館 Museum</a>
-          <a class="btn secondary" href="anchors.html">認識十四軸 Anchors</a>
+          <a class="btn secondary" href="museum.html">進入博物館 Museum</a>
+          <a class="btn secondary" href="anchors.html">查看職能名錄 Anchors</a>
           <a class="btn ghost" href="https://hijo790401.github.io/shen-yao-portal/" target="_blank" rel="noopener noreferrer">官方網站 Official Portal</a>
         </div>
       </div>
@@ -28,18 +28,28 @@
 
     <section class="section">
       <div class="container grid-2 fade-in">
-        <article class="card"><p class="kicker">Platform Intro</p><h2>平台簡介</h2><p id="intro-zh"></p><p class="meta" id="intro-en"></p></article>
-        <article class="card alert"><p class="kicker">Editorial Note</p><h2>責任與發布主軸</h2><p id="editorial-zh"></p><p class="meta" id="editorial-en"></p></article>
+        <article class="card">
+          <p class="kicker">Platform Positioning</p>
+          <h2>平台定位 Platform Identity</h2>
+          <p id="intro-zh"></p>
+          <p class="meta" id="intro-en"></p>
+        </article>
+        <article class="card alert">
+          <p class="kicker">Editorial Responsibility</p>
+          <h2>責任與發布 Responsibility & Release</h2>
+          <p id="editorial-zh"></p>
+          <p class="meta" id="editorial-en"></p>
+        </article>
       </div>
     </section>
 
-    <section class="section"><div class="container fade-in"><h2>最新報導預覽 Latest Reports</h2><div id="home-reports" class="grid-3"></div></div></section>
-    <section class="section"><div class="container fade-in"><h2>館藏精選預覽 Museum Highlights</h2><div id="home-museum" class="grid-3"></div></div></section>
-    <section class="section"><div class="container fade-in"><h2>十四軸主播精選 Featured Anchors</h2><div id="home-anchors" class="grid-4"></div></div></section>
+    <section class="section"><div class="container fade-in"><h2>新聞報導節選 Reports Briefing</h2><div id="home-reports" class="grid-3"></div></div></section>
+    <section class="section"><div class="container fade-in"><h2>館藏節選 Museum Registry Preview</h2><div id="home-museum" class="grid-3"></div></div></section>
+    <section class="section"><div class="container fade-in"><h2>十四軸職能節選 Fourteen-Axis Function Preview</h2><div id="home-anchors" class="grid-4"></div></div></section>
 
     <section class="section"><div class="container grid-2 fade-in">
-      <article class="card"><h2>創辦人精選 Founder</h2><p id="home-founder"></p><a class="btn primary" href="founder.html">進入 Founder</a></article>
-      <article class="card"><h2>公開導覽 CTA</h2><p>先讀導覽頁，再進入報導／館藏與十四軸角色頁，建立完整閱讀脈絡。</p><a class="btn secondary" href="guide.html">開始導覽 Guide</a></article>
+      <article class="card"><h2>創辦人與最終責任 Founder & Final Responsibility</h2><p id="home-founder"></p><a class="btn primary" href="founder.html">進入 Founder</a></article>
+      <article class="card"><h2>閱讀建議 Reading Sequence</h2><p>建議順序：Guide → Reports → Museum → Anchors → Founder，先建立脈絡，再進入判讀與合作。</p><p class="meta">Suggested sequence: Guide → Reports → Museum → Anchors → Founder.</p><a class="btn secondary" href="guide.html">開始導覽 Guide</a></article>
     </div></section>
   </main>
   <script src="js/ui.js"></script><script src="js/cms-data.js"></script><script src="js/main.js"></script>
@@ -58,9 +68,9 @@
     const [reports,museum,anchors,founder]=await Promise.all([loadCollection('content/reports'),loadCollection('content/museum'),loadCollection('content/anchors'),loadCollection('content/founder')]);
     const reportsBox=document.getElementById('home-reports');
     reports.sort((a,b)=>new Date(b.date)-new Date(a.date));
-    reportsBox.innerHTML=reports.slice(0,3).map(r=>`<article class="card"><span class="badge">${r.category||'Report'}</span><h3>${r.title_zh}</h3><p>${r.summary_zh}</p><a class="btn secondary" href="reports.html">閱讀</a></article>`).join('');
-    document.getElementById('home-museum').innerHTML=museum.slice(0,3).map(m=>`<article class="card"><h3>${m.title_zh}</h3><p>${m.subtitle_zh}</p></article>`).join('');
-    document.getElementById('home-anchors').innerHTML=anchors.filter(a=>home.featured_anchor_slugs.includes(a.slug)).map(a=>`<article class="card profile-card"><img src="${a.image}" alt="${a.name_zh}"><h3>${a.name_zh} ${a.name_en}</h3><p>${a.role_zh}</p></article>`).join('');
+    reportsBox.innerHTML=reports.slice(0,3).map(r=>`<article class="card"><span class="badge">${r.category||'Report'}</span><h3>${r.title_zh}</h3><p>${r.summary_zh}</p><p class="meta">${r.summary_en||''}</p><a class="btn secondary" href="reports.html">閱讀報導 Read</a></article>`).join('');
+    document.getElementById('home-museum').innerHTML=museum.slice(0,3).map(m=>`<article class="card"><h3>${m.title_zh}</h3><p>${m.subtitle_zh}</p><p class="meta">${m.subtitle_en||''}</p></article>`).join('');
+    document.getElementById('home-anchors').innerHTML=anchors.filter(a=>home.featured_anchor_slugs.includes(a.slug)).map(a=>`<article class="card profile-card"><img src="${a.image}" alt="${a.name_zh}"><h3>${a.name_zh} ${a.name_en}</h3><p class="role-text">${a.one_line_zh||a.role_zh||''}</p><p class="meta">${a.one_line_en||a.role_en||''}</p></article>`).join('');
     document.getElementById('home-founder').textContent=`${founder[0].name_zh}｜${founder[0].identity_zh}`;
   }catch(e){console.error(e);}})();
   </script>

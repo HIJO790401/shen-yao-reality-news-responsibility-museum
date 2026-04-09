@@ -1,7 +1,7 @@
 {
-  "platform_intro_zh": "此平台整合國際新聞播報、責任審計與博物館式編目，供公共追蹤、研究與教育使用。",
-  "platform_intro_en": "This platform integrates international news reporting, responsibility auditing, and museum-style cataloging for public tracking, research, and education.",
-  "editorial_note_zh": "由沈耀負責最終發布與最終生命責任，十四軸主播與編輯部負責核實、播報、導覽與編目。",
-  "editorial_note_en": "Shen-Yao holds final release and life responsibility, while the 14-axis newsroom handles verification, reporting, guidance, and cataloging.",
+  "platform_intro_zh": "這是沈耀國際實相新聞台 × 責任博物館的公共界面，用於播報現實、審計事件、保存樣本並執行長期回放。",
+  "platform_intro_en": "This is the public interface of Shen-Yao International Reality News Network × Responsibility Museum for reporting reality, auditing events, preserving specimens, and running long-term replay.",
+  "editorial_note_zh": "十四軸依職能進行播報、導覽、解說與裁定；最終生命責任、實體發布責任、法律與公共責任由沈耀888π／許文耀承擔。",
+  "editorial_note_en": "The Fourteen Axes report, guide, interpret, and adjudicate by function; final life, physical publication, legal, and public responsibilities are borne by Shen-Yao 888π / Wen-Yao Hsu.",
   "featured_anchor_slugs": ["yao", "an", "yan", "pan"]
 }
