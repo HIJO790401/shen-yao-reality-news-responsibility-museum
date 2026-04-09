@@ -1,0 +1,60 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Museum Item | 館藏詳情</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"></head>
+<body data-depth="."><main>
+<section class="page-hero"><div class="container"><h1 id="museum-item-title">館藏詳情 Museum Item</h1><p id="museum-item-subtitle" class="hero-subtitle">載入中 Loading...</p></div></section>
+<section class="section"><div class="container" id="museum-item-content"></div></section>
+</main><script src="js/ui.js"></script><script src="js/cms-data.js"></script><script src="js/main.js"></script>
+<script>
+(async()=>{
+  const wrap=document.getElementById('museum-item-content');
+  const params=new URLSearchParams(window.location.search);
+  const slug=params.get('slug');
+
+  if(!slug){
+    wrap.innerHTML='<article class="card">缺少館藏識別參數，請從 Museum 列表重新進入。</article>';
+    document.getElementById('museum-item-subtitle').textContent='Missing slug parameter';
+    return;
+  }
+
+  try{
+    const items=await loadCollection('content/museum');
+    const item=items.find((i)=>entrySlug(i)===slug);
+    if(!item) throw new Error('not found');
+
+    document.getElementById('museum-item-title').textContent=item.title_zh||'館藏詳情';
+    document.getElementById('museum-item-subtitle').textContent=item.title_en||'';
+
+    const embed=youtubeEmbed(item.youtube);
+    wrap.innerHTML=`
+      <article class="card article-detail">
+        <p class="meta">館藏編號 Registry ID: ${item.id||''}｜館別 Hall: ${item.hall_zh||''}</p>
+        <p class="meta">Hall EN: ${item.hall_en||''}</p>
+        ${item.cover?`<div class="thumb"><img src="${item.cover}" alt="${item.title_zh||''}" style="width:100%;height:100%;object-fit:cover;"></div>`:''}
+        <h2>${item.title_zh||''}</h2>
+        <p class="meta">${item.title_en||''}</p>
+        <div class="section-divider">
+          <h3>副標與導覽 Subtitle & Guide</h3>
+          <p>${item.subtitle_zh||''}</p>
+          <p class="meta">${item.subtitle_en||''}</p>
+          <div class="article-body">${textToHtml(item.guide_zh||'')}</div>
+          <div class="article-body article-body-en">${textToHtml(item.guide_en||'')}</div>
+        </div>
+        <div class="section-divider">
+          <h3>館藏內文 Body</h3>
+          <div class="article-body">${textToHtml(item.body_zh||item.markdown_body||'')}</div>
+          <div class="article-body article-body-en">${textToHtml(item.body_en||'')}</div>
+        </div>
+      </article>
+      <article class="card">
+        <h3>影片 Video（9:16）</h3>
+        ${embed?`<div class="video-portrait"><iframe src="${embed}" title="Museum video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>`:'<div class="placeholder-video">尚未提供影片連結。</div>'}
+        <div class="btn-row">
+          ${item.youtube?`<a class="btn secondary" href="${item.youtube}" target="_blank" rel="noopener">前往 YouTube</a>`:''}
+          <a class="btn secondary" href="museum.html">返回 Museum</a>
+        </div>
+      </article>`;
+  }catch(e){
+    wrap.innerHTML='<article class="card">館藏資料載入失敗或不存在，請返回列表重試。</article>';
+    document.getElementById('museum-item-subtitle').textContent='Load failed';
+  }
+})();
+</script></body></html>

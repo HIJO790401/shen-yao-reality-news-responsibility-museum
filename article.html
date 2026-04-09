@@ -1,11 +1,57 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Article Template</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"></head>
+<!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Article | 新聞詳情</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"></head>
 <body data-depth="."><main>
-<section class="page-hero"><div class="container"><h1>單篇文章模板 Article Template</h1><p>可作為後續正式報導頁基礎。</p></div></section>
-<section class="section"><div class="container"><article class="card">
-<p class="meta">日期：YYYY-MM-DD｜分類：Category</p><h2>中文標題 / English Title</h2><p>副標 Subheading placeholder.</p>
-<div class="thumb"></div>
-<p>內文段落 placeholder。此區可替換為完整審計報導內容。</p>
-<blockquote class="alert">引用與重點提示區塊 Placeholder.</blockquote>
-<div class="placeholder-video">YouTube Embed Placeholder iframe</div>
-</article></div></section>
-</main><script src="js/ui.js"></script><script src="js/main.js"></script></body></html>
+<section class="page-hero"><div class="container"><h1 id="article-title">新聞台文章 Article</h1><p id="article-subtitle" class="hero-subtitle">載入中 Loading...</p></div></section>
+<section class="section"><div class="container" id="article-content"></div></section>
+</main><script src="js/ui.js"></script><script src="js/cms-data.js"></script><script src="js/main.js"></script>
+<script>
+(async()=>{
+  const wrap=document.getElementById('article-content');
+  const params=new URLSearchParams(window.location.search);
+  const slug=params.get('slug');
+
+  if(!slug){
+    wrap.innerHTML='<article class="card">缺少文章識別參數，請從 Reports 列表重新進入。</article>';
+    document.getElementById('article-subtitle').textContent='Missing slug parameter';
+    return;
+  }
+
+  try{
+    const items=await loadCollection('content/reports');
+    const article=items.find((i)=>entrySlug(i)===slug);
+    if(!article) throw new Error('not found');
+
+    document.getElementById('article-title').textContent=article.title_zh||'新聞詳情';
+    document.getElementById('article-subtitle').textContent=article.title_en||'';
+
+    const embed=youtubeEmbed(article.youtube);
+    wrap.innerHTML=`
+      <article class="card article-detail">
+        <p class="meta">${article.date||''}｜分類 Category: ${article.category||''}</p>
+        ${article.cover?`<div class="thumb"><img src="${article.cover}" alt="${article.title_zh||''}" style="width:100%;height:100%;object-fit:cover;"></div>`:''}
+        <h2>${article.title_zh||''}</h2>
+        <p class="meta">${article.title_en||''}</p>
+        <div class="section-divider">
+          <h3>摘要 Summary</h3>
+          <p>${article.summary_zh||''}</p>
+          <p class="meta">${article.summary_en||''}</p>
+        </div>
+        <div class="section-divider">
+          <h3>內文 Body</h3>
+          <div class="article-body">${textToHtml(article.body_zh||article.markdown_body||'')}</div>
+          <div class="article-body article-body-en">${textToHtml(article.body_en||'')}</div>
+        </div>
+      </article>
+      <article class="card">
+        <h3>影片 Video（9:16）</h3>
+        ${embed?`<div class="video-portrait"><iframe src="${embed}" title="Article video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>`:'<div class="placeholder-video">尚未提供影片連結。</div>'}
+        <div class="btn-row">
+          ${article.youtube?`<a class="btn secondary" href="${article.youtube}" target="_blank" rel="noopener">前往 YouTube</a>`:''}
+          <a class="btn secondary" href="reports.html">返回 Reports</a>
+        </div>
+      </article>`;
+  }catch(e){
+    wrap.innerHTML='<article class="card">文章載入失敗或不存在，請返回列表重試。</article>';
+    document.getElementById('article-subtitle').textContent='Load failed';
+  }
+})();
+</script></body></html>

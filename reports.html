@@ -7,14 +7,26 @@
 <section class="section"><div class="container">
 <h2>報導名錄 Article Registry</h2><div id="reports-list" class="grid-3"></div>
 </div></section>
-<section class="section"><div class="container"><h2>文章頁結構 Article Structure</h2>
-<article class="card"><h3>article.html Template Note</h3><ul class="inline-list"><li>標題與副標 / Headline and subtitle</li><li>日期、分類、責任鏈 / Date, category, responsibility chain</li><li>內文敘述與引文 / Body narrative and citations</li><li>影片記錄 / Video record</li></ul><div class="placeholder-video">Article Video Frame</div></article>
-</div></section>
 </main><script src="js/ui.js"></script><script src="js/cms-data.js"></script><script src="js/main.js"></script>
 <script>
-(async()=>{const list=document.getElementById('reports-list');try{const items=await loadCollection('content/reports');
-items.sort((a,b)=>new Date(b.date)-new Date(a.date));
-list.innerHTML=items.map(r=>`<article class="card"><div class="thumb">${r.cover?`<img src="${r.cover}" alt="${r.title_zh||''}" style="width:100%;height:100%;object-fit:cover;">`:''}</div><p class="meta">${r.date||''}｜分類 Category: ${r.category||''}</p><h3>${r.title_zh||''}</h3><p class="meta">${r.title_en||''}</p><p>${r.summary_zh||''}</p><p class="meta">${r.summary_en||''}</p><div class="btn-row"><a class="btn secondary" href="article.html">閱讀詳情 Read</a>${r.youtube?`<a class="btn secondary" href="${r.youtube}" target="_blank" rel="noopener">影片 Video</a>`:''}</div></article>`).join('');
-}catch(e){list.innerHTML='<article class="card">內容載入失敗，請稍後重試。</article>';}})();
+(async()=>{
+  const list=document.getElementById('reports-list');
+  try{
+    const items=await loadCollection('content/reports');
+    items.sort((a,b)=>new Date(b.date)-new Date(a.date));
+
+    list.innerHTML=items.map((r)=>{
+      const slug=entrySlug(r);
+      const detailHref=slug?`article.html?slug=${encodeURIComponent(slug)}`:'article.html';
+      return `<article class="card"><div class="thumb">${r.cover?`<img src="${r.cover}" alt="${r.title_zh||''}" style="width:100%;height:100%;object-fit:cover;">`:''}</div><p class="meta">${r.date||''}｜分類 Category: ${r.category||''}</p><h3>${r.title_zh||''}</h3><p class="meta">${r.title_en||''}</p><p>${r.summary_zh||''}</p><p class="meta">${r.summary_en||''}</p><div class="btn-row"><a class="btn secondary" href="${detailHref}">閱讀詳情 Read</a>${r.youtube?`<a class="btn secondary" href="${r.youtube}" target="_blank" rel="noopener">前往 YouTube</a>`:''}</div></article>`;
+    }).join('');
+
+    if (!items.length) {
+      list.innerHTML='<article class="card">目前尚無報導，請由 CMS 新增文章。</article>';
+    }
+  }catch(e){
+    list.innerHTML='<article class="card">內容載入失敗，請稍後重試。</article>';
+  }
+})();
 </script>
 </body></html>
