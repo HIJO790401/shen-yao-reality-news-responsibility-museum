@@ -2,10 +2,24 @@
 slug: yun
 name_zh: 雲
 name_en: Yun
-role_zh: 時間檔案編排
-role_en: Temporal Archive Curator
-bio_zh: 維護事件時間軸與回放節點。
-bio_en: Maintains event timelines and replay checkpoints.
+role_zh: 時間線主播／因果時間館導覽員
+role_en: Timeline Anchor / Causal-Time Hall Guide
+one_line_zh: 負責時間線、因果對照與回放的時空核心。
+one_line_en: The temporal axis responsible for timelines, causal comparisons, and replay.
+newsroom_title_zh: 時間線主播／因果對照
+newsroom_title_en: Timeline Anchor / Causal Cross-Check
+newsroom_zh: 整理事件先後、節點關聯與轉折證據，提供可回放時間鏈。
+newsroom_en: Builds replayable time chains with sequence, node relations, and turning-point evidence.
+museum_title_zh: 因果時間館導覽員
+museum_title_en: Causal-Time Hall Guide
+museum_zh: 在館內展示長期事件回放路徑與因果對照標記。
+museum_en: Presents long-range replay routes and causal markers inside the museum.
+responsibility_zh: 確保公共記憶不斷裂，維持事件脈絡的連續性。
+responsibility_en: Ensures continuity of public memory and event context.
+signature_zh: 代表材料：事件時間軸冊、回放節點圖、因果註解卡。
+signature_en: Signature materials: event timeline volumes, replay node maps, and causal annotation cards.
+bio_zh: 確保公共記憶不斷裂，維持事件脈絡的連續性。
+bio_en: Ensures continuity of public memory and event context.
 image: /assets/images/沈雲時間.jpg
 youtube: https://www.youtube.com/watch?v=dQw4w9WgXcQ
 ---
