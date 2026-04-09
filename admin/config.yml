@@ -33,10 +33,11 @@ collections:
     label: "Reports"
     folder: "content/reports"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug_key}}"
     format: frontmatter
     extension: md
     fields:
+      - { label: "Slug Key", name: "slug_key", widget: "string", hint: "檔名專用短代碼（英文小寫/數字/連字號，6-80 字元）。例如 openai-tbpn-audit", pattern: ["^[a-z0-9-]{6,80}$", "僅允許 a-z、0-9、-，長度 6-80。"] }
       - { label: "Title ZH", name: "title_zh", widget: "string" }
       - { label: "Title EN", name: "title_en", widget: "string" }
       - { label: "Summary ZH", name: "summary_zh", widget: "text" }
@@ -52,11 +53,12 @@ collections:
     label: "Museum"
     folder: "content/museum"
     create: true
-    slug: "{{slug}}"
+    slug: "{{slug_key}}"
     format: frontmatter
     extension: md
     fields:
       - { label: "ID", name: "id", widget: "string" }
+      - { label: "Slug Key", name: "slug_key", widget: "string", hint: "檔名專用短代碼（英文小寫/數字/連字號，6-80 字元）。例如 openai-tbpn-audit", pattern: ["^[a-z0-9-]{6,80}$", "僅允許 a-z、0-9、-，長度 6-80。"] }
       - { label: "Title ZH", name: "title_zh", widget: "string" }
       - { label: "Title EN", name: "title_en", widget: "string" }
       - { label: "Subtitle ZH", name: "subtitle_zh", widget: "text" }
