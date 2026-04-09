@@ -1,6 +1,7 @@
 ---
 title_zh: 黑盾審計快報：當做 AI 的人開始買麥克風
 title_en: "Black-Shield Audit Brief: When AI Builders Start Buying the Microphone"
+slug_key: "openai-tbpn-audit"
 summary_zh: >+
   OpenAI 收購科技談話節目 TBPN，表面上是媒體佈局，實際上則把技術權力與敘事權力綁在一起。本篇追問的不是交易本身，而是誰定義
   AI、誰驗證獨立、誰承擔後果。

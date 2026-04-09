@@ -38,7 +38,7 @@ function parseFrontMatter(markdown) {
       return;
     }
 
-    const blockMatch = line.match(/^([a-zA-Z0-9_]+):\s*\|\s*$/);
+    const blockMatch = line.match(/^([a-zA-Z0-9_]+):\s*([>|])([+-])?\s*$/);
     if (blockMatch) {
       flushBuffer();
       currentKey = blockMatch[1];
@@ -46,8 +46,11 @@ function parseFrontMatter(markdown) {
     }
 
     if (currentKey) {
-      buffer.push(line.replace(/^\s{2}/, ''));
-      return;
+      if (/^\s{2,}/.test(line)) {
+        buffer.push(line.replace(/^\s{2}/, ''));
+        return;
+      }
+      flushBuffer();
     }
 
     const kvMatch = line.match(/^([a-zA-Z0-9_]+):\s*(.*)$/);
@@ -67,11 +70,33 @@ function textToHtml(text = '') {
     .join('');
 }
 
+function normalizeSlug(value = '') {
+  return String(value || '').trim().replace(/\.md$/i, '');
+}
+
+function entrySlug(entry = {}) {
+  if (entry.slug) return normalizeSlug(entry.slug);
+  if (entry._file) return normalizeSlug(entry._file);
+  return '';
+}
+
 function youtubeEmbed(url = '') {
   if (!url) return '';
-  const m = url.match(/(?:v=|youtu\.be\/|embed\/)([a-zA-Z0-9_-]{11})/);
-  if (!m) return '';
-  return `https://www.youtube.com/embed/${m[1]}`;
+  const clean = String(url).trim();
+
+  const shortsMatch = clean.match(/youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/);
+  if (shortsMatch) return `https://www.youtube.com/embed/${shortsMatch[1]}`;
+
+  const watchMatch = clean.match(/[?&]v=([a-zA-Z0-9_-]{11})/);
+  if (watchMatch) return `https://www.youtube.com/embed/${watchMatch[1]}`;
+
+  const shortLinkMatch = clean.match(/youtu\.be\/([a-zA-Z0-9_-]{11})/);
+  if (shortLinkMatch) return `https://www.youtube.com/embed/${shortLinkMatch[1]}`;
+
+  const embedMatch = clean.match(/embed\/([a-zA-Z0-9_-]{11})/);
+  if (embedMatch) return `https://www.youtube.com/embed/${embedMatch[1]}`;
+
+  return '';
 }
 
 async function loadCollection(folder) {

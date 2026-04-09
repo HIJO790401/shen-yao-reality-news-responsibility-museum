@@ -10,19 +10,19 @@
 - `content/founder/`：創辦人資料（單一檔）
 - `data/site.json`：站點名稱與 Hero 字串
 - `data/home.json`：首頁簡介與精選設定
-- `public/assets/uploads/`：CMS 上傳圖檔位置
+- `assets/uploads/`：CMS 上傳圖檔位置
 - `admin/`：Decap CMS 後台
 
 ## 如何新增文章（Reports）
 1. 進入 `/admin/` 並登入。
 2. 點選 `Reports` collection。
-3. 新增項目，填寫：`title_zh`, `title_en`, `summary_zh`, `summary_en`, `date`, `category`, `cover`, `youtube`, `body_zh`, `body_en`。
+3. 新增項目，填寫：`slug_key`（檔名短代碼，英文小寫/數字/連字號，6-80 字元）、`title_zh`, `title_en`, `summary_zh`, `summary_en`, `date`, `category`, `cover`, `youtube`, `body_zh`, `body_en`。
 4. 儲存後會寫入 `content/reports/*.md`。
 
 ## 如何新增館藏（Museum）
 1. 進入 `/admin/`。
 2. 點 `Museum` collection，新增條目。
-3. 填寫館藏編號、中英文標題/副標、導覽文、hall、封面與 YouTube。
+3. 填寫 `slug_key`（檔名短代碼，英文小寫/數字/連字號，6-80 字元）、館藏編號、中英文標題/副標、導覽文、hall、封面與 YouTube。
 4. 儲存後會寫入 `content/museum/*.md`。
 
 ## 如何修改十四軸角色資料
@@ -35,7 +35,7 @@
 2. 編輯 `content/founder/profile.md` 內容。
 
 ## 如何上傳圖片
-- 在 CMS 的 image 欄位上傳後，檔案會進入 `public/assets/uploads/`。
+- 在 CMS 的 image 欄位上傳後，檔案會進入 `assets/uploads/`。
 - 前端會使用 `public_folder: /assets/uploads` 路徑顯示。
 
 ## 如何貼 YouTube
