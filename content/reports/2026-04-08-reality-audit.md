@@ -1,12 +1,12 @@
 ---
-title_zh: 實相審計週報：責任鏈條追蹤第 001 號
-title_en: Reality Audit Weekly: Responsibility Chain Tracking No.001
-summary_zh: 本期盤點跨平台公共敘事中的責任斷點，提出三項可追蹤修正路徑。
-summary_en: This issue maps responsibility breakpoints in cross-platform narratives and proposes three actionable correction paths.
-date: 2026-04-08
-category: Audit
-cover: /assets/images/新聞台封面16：9.png
-youtube: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+title_zh: "實相審計週報：責任鏈條追蹤第 001 號"
+title_en: "Reality Audit Weekly: Responsibility Chain Tracking No.001"
+summary_zh: "本期盤點跨平台公共敘事中的責任斷點，提出三項可追蹤修正路徑。"
+summary_en: "This issue maps responsibility breakpoints in cross-platform narratives and proposes three actionable correction paths."
+date: "2026-04-08"
+category: "Audit"
+cover: "/assets/images/新聞台封面16：9.png"
+youtube: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 body_zh: |
   本報導針對近期公共討論中的「誰發布、誰承擔、誰核實」三層責任鏈進行審計。
   我們比對了敘事來源、二次轉述節點與最終行動責任，確認風險多發生在中段轉述層。

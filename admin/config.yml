@@ -83,6 +83,20 @@ collections:
       - { label: "Name EN", name: "name_en", widget: "string" }
       - { label: "Role ZH", name: "role_zh", widget: "string" }
       - { label: "Role EN", name: "role_en", widget: "string" }
+      - { label: "One-line ZH", name: "one_line_zh", widget: "text", required: false }
+      - { label: "One-line EN", name: "one_line_en", widget: "text", required: false }
+      - { label: "Newsroom Title ZH", name: "newsroom_title_zh", widget: "string", required: false }
+      - { label: "Newsroom Title EN", name: "newsroom_title_en", widget: "string", required: false }
+      - { label: "Newsroom Body ZH", name: "newsroom_zh", widget: "text", required: false }
+      - { label: "Newsroom Body EN", name: "newsroom_en", widget: "text", required: false }
+      - { label: "Museum Title ZH", name: "museum_title_zh", widget: "string", required: false }
+      - { label: "Museum Title EN", name: "museum_title_en", widget: "string", required: false }
+      - { label: "Museum Body ZH", name: "museum_zh", widget: "text", required: false }
+      - { label: "Museum Body EN", name: "museum_en", widget: "text", required: false }
+      - { label: "Responsibility ZH", name: "responsibility_zh", widget: "text", required: false }
+      - { label: "Responsibility EN", name: "responsibility_en", widget: "text", required: false }
+      - { label: "Signature ZH", name: "signature_zh", widget: "text", required: false }
+      - { label: "Signature EN", name: "signature_en", widget: "text", required: false }
       - { label: "Bio ZH", name: "bio_zh", widget: "text" }
       - { label: "Bio EN", name: "bio_en", widget: "text" }
       - { label: "Image", name: "image", widget: "image" }
@@ -101,8 +115,14 @@ collections:
           - { label: "Location EN", name: "location_en", widget: "string" }
           - { label: "Identity ZH", name: "identity_zh", widget: "text" }
           - { label: "Identity EN", name: "identity_en", widget: "text" }
+          - { label: "Identity List ZH", name: "identity_list_zh", widget: "text", required: false }
+          - { label: "Identity List EN", name: "identity_list_en", widget: "text", required: false }
           - { label: "Statement ZH", name: "statement_zh", widget: "text" }
           - { label: "Statement EN", name: "statement_en", widget: "text" }
+          - { label: "Mission ZH", name: "mission_zh", widget: "text", required: false }
+          - { label: "Mission EN", name: "mission_en", widget: "text", required: false }
+          - { label: "Collaboration ZH", name: "collaboration_zh", widget: "text", required: false }
+          - { label: "Collaboration EN", name: "collaboration_en", widget: "text", required: false }
           - { label: "Email", name: "email", widget: "string" }
           - { label: "Phone", name: "phone", widget: "string" }
           - { label: "Website", name: "website", widget: "string" }
