@@ -10,7 +10,7 @@
 - `content/founder/`：創辦人資料（單一檔）
 - `data/site.json`：站點名稱與 Hero 字串
 - `data/home.json`：首頁簡介與精選設定
-- `public/assets/uploads/`：CMS 上傳圖檔位置
+- `assets/uploads/`：CMS 上傳圖檔位置
 - `admin/`：Decap CMS 後台
 
 ## 如何新增文章（Reports）
@@ -35,7 +35,7 @@
 2. 編輯 `content/founder/profile.md` 內容。
 
 ## 如何上傳圖片
-- 在 CMS 的 image 欄位上傳後，檔案會進入 `public/assets/uploads/`。
+- 在 CMS 的 image 欄位上傳後，檔案會進入 `assets/uploads/`。
 - 前端會使用 `public_folder: /assets/uploads` 路徑顯示。
 
 ## 如何貼 YouTube

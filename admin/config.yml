@@ -25,7 +25,7 @@ auth:
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 site_url: https://charming-torrone-76a6a1.netlify.app
 
-media_folder: "public/assets/uploads"
+media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
 collections:
