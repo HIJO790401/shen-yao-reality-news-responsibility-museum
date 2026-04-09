@@ -1,11 +1,54 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Article Template</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"></head>
+<!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Article | 報導詳頁</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"></head>
 <body data-depth="."><main>
-<section class="page-hero"><div class="container"><h1>單篇文章模板 Article Template</h1><p>可作為後續正式報導頁基礎。</p></div></section>
-<section class="section"><div class="container"><article class="card">
-<p class="meta">日期：YYYY-MM-DD｜分類：Category</p><h2>中文標題 / English Title</h2><p>副標 Subheading placeholder.</p>
-<div class="thumb"></div>
-<p>內文段落 placeholder。此區可替換為完整審計報導內容。</p>
-<blockquote class="alert">引用與重點提示區塊 Placeholder.</blockquote>
-<div class="placeholder-video">YouTube Embed Placeholder iframe</div>
-</article></div></section>
-</main><script src="js/ui.js"></script><script src="js/main.js"></script></body></html>
+<section class="page-hero"><div class="container"><h1>報導詳頁 Article</h1><p class="hero-subtitle">單篇報導、摘要、內文與影像紀錄。</p></div></section>
+<section class="section"><div class="container" id="article-wrap"></div></section>
+</main><script src="js/ui.js"></script><script src="js/cms-data.js"></script><script src="js/main.js"></script>
+<script>
+(async()=>{
+  const wrap=document.getElementById('article-wrap');
+  const params=new URLSearchParams(window.location.search);
+  const slug=(params.get('slug')||'').trim();
+  const cleanText=(t='')=>t.replace(/^[\s>+\-*]+/gm,'').trim();
+
+  if(!slug){
+    wrap.innerHTML='<article class="card">找不到文章參數 slug，請回 Reports 重新選擇文章。</article>';
+    return;
+  }
+
+  try{
+    const items=await loadCollection('content/reports');
+    const article=items.find(i=>((i.slug||i._file?.replace(/\.md$/,'')||'').trim()===slug));
+
+    if(!article){
+      wrap.innerHTML='<article class="card">找不到對應文章，請回 Reports 重新選擇。</article>';
+      return;
+    }
+
+    const embed=youtubeEmbed(article.youtube||'');
+    const bodyZhRaw=cleanText(article.body_zh||'');
+    const bodyEnRaw=cleanText(article.body_en||'');
+    const bodyZh=textToHtml(bodyZhRaw);
+    const bodyEn=textToHtml(bodyEnRaw);
+    const summaryZh=cleanText(article.summary_zh||'');
+    const summaryEn=cleanText(article.summary_en||'');
+
+    wrap.innerHTML=`
+      <article class="card article-layout">
+        ${article.cover?`<section class="article-cover"><div class="article-cover-frame"><img src="${article.cover}" alt="${article.title_zh||''}"></div></section>`:''}
+        <section class="article-meta-block">
+          <p class="meta">${article.date||''}｜分類 Category: ${article.category||''}</p>
+          ${article.title_zh?`<h2>${article.title_zh}</h2>`:''}
+          ${article.title_en?`<p class="meta article-title-en">${article.title_en}</p>`:''}
+          ${summaryZh?`<p>${summaryZh}</p>`:''}
+          ${summaryEn?`<p class="meta">${summaryEn}</p>`:''}
+        </section>
+        ${bodyZh?`<section class="section-divider article-body"><h3>內文 Body ZH</h3>${bodyZh}</section>`:''}
+        ${bodyEn?`<section class="section-divider article-body"><h3>Body EN</h3>${bodyEn}</section>`:''}
+        ${embed?`<section class="section-divider article-video"><h3>Video</h3><div class="video-frame-9x16"><iframe src="${embed}" title="Article video" frameborder="0" allowfullscreen></iframe></div></section>`:''}
+      </article>
+    `;
+  }catch(e){
+    wrap.innerHTML='<article class="card">文章載入失敗，請稍後再試。</article>';
+  }
+})();
+</script></body></html>

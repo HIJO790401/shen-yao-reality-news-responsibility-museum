@@ -3,18 +3,18 @@
 <title>Reports | 沈耀國際實相新聞台</title>
 <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"></head>
 <body data-depth="."><main>
-<section class="page-hero"><div class="container"><h1>新聞台 Reports</h1><p>國際實相新聞、責任審計報導與高危追蹤專區。</p></div></section>
+<section class="page-hero"><div class="container"><h1>新聞台報導 Reports</h1><p class="hero-subtitle">用於公共事件播報、風險敘事拆解、責任審計映射與回放索引。<br>For public-event reporting, risk narrative audits, responsibility mapping, and replay indexing.</p></div></section>
 <section class="section"><div class="container">
-<h2>文章列表 Article Feed</h2><div id="reports-list" class="grid-3"></div>
+<h2>報導名錄 Article Registry</h2><div id="reports-list" class="grid-3"></div>
 </div></section>
-<section class="section"><div class="container"><h2>單篇文章頁骨架 Template</h2>
-<article class="card"><h3>article.html 結構預覽</h3><ul><li>標題／副標／日期與分類</li><li>封面圖位置</li><li>內文段落與引言</li><li>影片嵌入區塊</li></ul><div class="placeholder-video">YouTube iframe placeholder</div></article>
+<section class="section"><div class="container"><h2>文章頁結構 Article Structure</h2>
+<article class="card"><h3>article.html Template Note</h3><ul class="inline-list"><li>標題與副標 / Headline and subtitle</li><li>日期、分類、責任鏈 / Date, category, responsibility chain</li><li>內文敘述與引文 / Body narrative and citations</li><li>影片記錄 / Video record</li></ul><div class="placeholder-video">Article Video Frame</div></article>
 </div></section>
 </main><script src="js/ui.js"></script><script src="js/cms-data.js"></script><script src="js/main.js"></script>
 <script>
-(async()=>{const list=document.getElementById('reports-list');try{const items=await loadCollection('content/reports');
+(async()=>{const list=document.getElementById('reports-list');const cleanSummary=(t='')=>t.replace(/^\s*[>+\-*]+\s*/gm,'').replace(/\s+/g,' ').trim();try{const items=await loadCollection('content/reports');
 items.sort((a,b)=>new Date(b.date)-new Date(a.date));
-list.innerHTML=items.map(r=>`<article class="card"><div class="thumb">${r.cover?`<img src="${r.cover}" alt="${r.title_zh||''}" style="width:100%;height:100%;object-fit:cover;">`:''}</div><p class="meta">${r.date||''}｜分類：${r.category||''}</p><h3>${r.title_zh||''}</h3><p>${r.title_en||''}</p><p>${r.summary_zh||''}</p><p class="meta">${r.summary_en||''}</p><div class="btn-row"><a class="btn secondary" href="article.html">閱讀詳情</a>${r.youtube?`<a class="btn secondary" href="${r.youtube}" target="_blank" rel="noopener">影片</a>`:''}</div></article>`).join('');
+list.innerHTML=items.map(r=>{const slug=(r.slug||r._file?.replace(/\.md$/,'')||'').trim();return `<article class="card"><div class="thumb">${r.cover?`<img src="${r.cover}" alt="${r.title_zh||''}" style="width:100%;height:100%;object-fit:cover;">`:''}</div><p class="meta">${r.date||''}｜分類 Category: ${r.category||''}</p><h3>${r.title_zh||''}</h3><p class="meta">${r.title_en||''}</p><p>${cleanSummary(r.summary_zh||'')}</p><p class="meta">${cleanSummary(r.summary_en||'')}</p><div class="btn-row"><a class="btn secondary" href="article.html?slug=${encodeURIComponent(slug)}">閱讀詳情 Read</a>${r.youtube?`<a class="btn secondary" href="${r.youtube}" target="_blank" rel="noopener">影片 Video</a>`:''}</div></article>`;}).join('');
 }catch(e){list.innerHTML='<article class="card">內容載入失敗，請稍後重試。</article>';}})();
 </script>
 </body></html>
