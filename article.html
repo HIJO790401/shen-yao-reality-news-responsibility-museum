@@ -1,0 +1,12 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>報導詳情 Article</title><meta name="description" content="報導詳細頁：中英雙語內容、影片與責任分類。"><link rel="canonical" href="https://charming-torrone-76a6a1.netlify.app/article.html" /><meta property="og:type" content="article" /><meta property="og:locale" content="zh_TW" /><meta name="twitter:card" content="summary_large_image" /><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"></head>
+<body data-depth="."><main>
+<section class="page-hero"><div class="container"><p class="page-kicker">Report Detail</p><h1 id="article-title">報導詳情 Article Detail</h1><p id="article-sub">載入中 Loading...</p></div></section>
+<section class="section"><div class="container"><article id="article-wrap" class="card"></article></div></section>
+</main><script src="js/ui.js"></script><script src="js/cms-data.js"></script>
+<script>
+(async()=>{const wrap=document.getElementById('article-wrap');setLoading(wrap);const slug=new URLSearchParams(location.search).get('slug');if(!slug){setError(wrap,'缺少 slug 參數 Missing slug');return;}try{const r=await loadBySlug('content/reports',slug);if(!r){setError(wrap,'找不到此報導 Report not found');return;}
+document.getElementById('article-title').textContent=r.title_zh||'報導詳情';document.getElementById('article-sub').textContent=r.title_en||'';
+const embed=youtubeEmbed(r.youtube||'');
+wrap.innerHTML=`<p class="meta">${r.date||''}｜${r.category||''}</p><h2>${r.title_zh||''}</h2><p>${r.title_en||''}</p><div class="thumb">${r.cover?`<img src="${r.cover}" alt="${r.title_zh||''}">`:''}</div><div class="content-body"><h3>中文內容</h3>${textToHtml(r.body_zh||'')}<h3>English Content</h3>${textToHtml(r.body_en||'')}</div>${embed?`<div style="margin-top:1rem"><iframe width="100%" height="360" src="${embed}" title="Report video" frameborder="0" allowfullscreen></iframe></div>`:''}`;
+}catch(e){setError(wrap);}})();
+</script></body></html>

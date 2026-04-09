@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://charming-torrone-76a6a1.netlify.app/sitemap.xml

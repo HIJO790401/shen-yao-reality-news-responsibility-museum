@@ -1,0 +1,16 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>創辦人 Founder｜許文耀／沈耀888π</title><meta name="description" content="創辦人主頁：身份、宣言、平台使命與對外合作。"><link rel="canonical" href="https://charming-torrone-76a6a1.netlify.app/founder.html" /><meta property="og:title" content="創辦人 Founder｜許文耀／沈耀888π" /><meta property="og:description" content="最終生命責任承擔者與最終實體發布者" /><meta property="og:type" content="profile" /><meta property="og:locale" content="zh_TW" /><meta property="og:image" content="https://charming-torrone-76a6a1.netlify.app/assets/images/沈耀主核.jpg" /><meta name="twitter:card" content="summary_large_image" /><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"></head>
+<body data-depth="."><main>
+<section class="page-hero"><div class="container"><p class="page-kicker">Founder Identity</p><h1 id="founder-title">創辦人 Founder</h1><p id="founder-sub">載入中 Loading...</p></div></section>
+<section class="section"><div id="founder-content" class="container grid-2"></div></section>
+</main><script src="js/ui.js"></script><script src="js/cms-data.js"></script><script src="js/main.js"></script>
+<script>
+(async()=>{const wrap=document.getElementById('founder-content');setLoading(wrap);try{const f=(await loadCollection('content/founder'))[0];if(!f)return setError(wrap,'找不到創辦人資料');
+document.getElementById('founder-title').textContent=`${f.name_zh}`;document.getElementById('founder-sub').textContent=`${f.name_en}｜${f.location_zh} / ${f.location_en}`;const embed=youtubeEmbed(f.youtube||'');
+wrap.innerHTML=`<article class="card profile-card"><img src="${f.image}" alt="${f.name_zh}"><h3>${f.name_zh}</h3><p>${f.name_en}</p><p>${f.identity_zh}</p><a class="btn primary" href="${f.website}" target="_blank" rel="noopener">官方網站 Official Portal</a></article>
+<article class="card"><h3>核心身份 Identity</h3><p>${f.identity_zh}</p><p>${f.identity_en}</p><p>Email: <a href="mailto:${f.email}">${f.email}</a><br>Phone: <a href="tel:${f.phone}">${f.phone}</a></p></article>
+<article class="card alert"><h3>宣言 Statement</h3><p><strong>${f.statement_zh}</strong></p><p><strong>${f.statement_en}</strong></p></article>
+<article class="card"><h3>平台使命 Mission</h3><p>${f.mission_zh||''}</p><p>${f.mission_en||''}</p></article>
+<article class="card"><h3>對外合作 Collaboration</h3><p>${f.collaboration_zh||''}</p><p>${f.collaboration_en||''}</p><ul class="inline-list"><li>新聞合作 News Collaboration</li><li>研究合作 Research Collaboration</li><li>策展合作 Curatorial Collaboration</li><li>平台合作 Platform Collaboration</li></ul></article>
+<article class="card"><h3>Founder YouTube</h3>${embed?`<iframe width="100%" height="300" src="${embed}" title="Founder video" frameborder="0" allowfullscreen></iframe>`:'<div class="placeholder-video">尚未設定影片 No video configured.</div>'}</article>`;
+}catch(e){setError(wrap);}})();
+</script></body></html>

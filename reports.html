@@ -1,0 +1,16 @@
+<!doctype html><html lang="zh-Hant"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>報導 Reports｜沈耀國際實相新聞台</title>
+<meta name="description" content="新聞台報導欄目：國際實相播報、責任審計、風險觀測與公開判讀。">
+<link rel="canonical" href="https://charming-torrone-76a6a1.netlify.app/reports.html" />
+<meta property="og:title" content="報導 Reports｜沈耀國際實相新聞台" /><meta property="og:description" content="新聞播報、審計與高危觀測欄目" /><meta property="og:type" content="website" /><meta property="og:locale" content="zh_TW" /><meta property="og:image" content="https://charming-torrone-76a6a1.netlify.app/assets/images/新聞台封面16：9.png" /><meta name="twitter:card" content="summary_large_image" />
+<link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"></head>
+<body data-depth="."><main>
+<section class="page-hero"><div class="container"><p class="page-kicker">Newsroom Column</p><h1>報導 Reports</h1><p>國際新聞編輯部欄目：播報、審計、拆解現實事件。Bilingual newsroom reports, audits, and reality deconstruction.</p></div></section>
+<section class="section"><div class="container"><div id="reports-list" class="grid-3"></div></div></section>
+</main><script src="js/ui.js"></script><script src="js/cms-data.js"></script><script src="js/main.js"></script>
+<script>
+(async()=>{const list=document.getElementById('reports-list');setLoading(list);try{const items=await loadCollection('content/reports');items.sort((a,b)=>new Date(b.date)-new Date(a.date));
+list.innerHTML=items.map(r=>`<article class="card"><div class="thumb">${r.cover?`<img loading="lazy" src="${r.cover}" alt="${r.title_zh||''}">`:''}</div><span class="badge">${r.category||'Reports'}</span><h3>${r.title_zh||''}</h3><p>${r.title_en||''}</p><p>${r.summary_zh||''}</p><div class="meta">${r.summary_en||''}</div><p class="meta">${r.date||''}</p><div class="btn-row"><a class="btn secondary" href="article.html?slug=${r.slug||r._slug}">閱讀詳情 Details</a>${r.youtube?`<a class="btn secondary" target="_blank" rel="noopener" href="${r.youtube}">影片 Video</a>`:''}</div></article>`).join('')||'<article class="card">目前無報導，請至後台新增。No reports yet.</article>';
+}catch(e){setError(list);}})();
+</script></body></html>

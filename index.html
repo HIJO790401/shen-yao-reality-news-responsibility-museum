@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>首頁 Home｜沈耀國際實相新聞台 × 責任博物館</title>
+  <meta name="description" content="沈耀國際實相新聞台 × 責任博物館：國際新聞編輯部、責任審計平台與數位館藏導覽的公共界面。" />
+  <link rel="canonical" href="https://charming-torrone-76a6a1.netlify.app/index.html" />
+  <meta property="og:title" content="沈耀國際實相新聞台 × 責任博物館" />
+  <meta property="og:description" content="國際新聞編輯部 × 責任審計 × 數位策展博物館" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_TW" />
+  <meta property="og:image" content="https://charming-torrone-76a6a1.netlify.app/assets/images/新聞台封面16：9.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body data-depth=".">
+  <main>
+    <section class="hero">
+      <div class="hero-content fade-in">
+        <h1 id="site-title-zh">沈耀國際實相新聞台 × 責任博物館<span id="site-title-en">Shen-Yao International Reality News Network × Responsibility Museum</span></h1>
+        <p id="hero-sub-zh"></p>
+        <p id="hero-sub-en"></p>
+        <div class="btn-row">
+          <a class="btn primary" href="reports.html">進入報導 Reports</a>
+          <a class="btn secondary" href="museum.html">進入博物館 Museum</a>
+          <a class="btn secondary" href="anchors.html">進入主播 Anchors</a>
+          <a class="btn ghost" href="https://hijo790401.github.io/shen-yao-portal/" target="_blank" rel="noopener noreferrer">官方網站 Official Portal</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2 fade-in">
+        <article class="card"><p class="kicker">Platform Intro</p><h2>平台簡介</h2><p id="intro-zh"></p><p class="meta" id="intro-en"></p></article>
+        <article class="card alert"><p class="kicker">Editorial Core</p><h2>發布與責任核心</h2><p id="editorial-zh"></p><p class="meta" id="editorial-en"></p></article>
+      </div>
+    </section>
+
+    <section class="section"><div class="container fade-in"><p class="page-kicker">Reports Preview</p><h2>最新報導 Latest Reports</h2><div id="home-reports" class="grid-3"></div></div></section>
+    <section class="section"><div class="container fade-in"><p class="page-kicker">Museum Preview</p><h2>館藏精選 Museum Highlights</h2><div id="home-museum" class="grid-3"></div></div></section>
+    <section class="section"><div class="container fade-in"><p class="page-kicker">Anchors Preview</p><h2>十四軸精選 Featured Anchors</h2><div id="home-anchors" class="grid-4"></div></div></section>
+  </main>
+
+  <script src="js/ui.js"></script><script src="js/cms-data.js"></script><script src="js/main.js"></script>
+  <script>
+    (async()=>{
+      const reportsBox=document.getElementById('home-reports');
+      const museumBox=document.getElementById('home-museum');
+      const anchorsBox=document.getElementById('home-anchors');
+      setLoading(reportsBox); setLoading(museumBox); setLoading(anchorsBox);
+      try {
+        const site=await loadJson('data/site.json'); const home=await loadJson('data/home.json');
+        document.getElementById('site-title-zh').childNodes[0].nodeValue=site.name_zh;
+        document.getElementById('site-title-en').textContent=site.name_en;
+        document.getElementById('hero-sub-zh').textContent=site.hero_subtitle_zh;
+        document.getElementById('hero-sub-en').textContent=site.hero_subtitle_en;
+        document.getElementById('intro-zh').textContent=home.platform_intro_zh;
+        document.getElementById('intro-en').textContent=home.platform_intro_en;
+        document.getElementById('editorial-zh').textContent=home.editorial_note_zh;
+        document.getElementById('editorial-en').textContent=home.editorial_note_en;
+
+        const [reports,museum,anchors]=await Promise.all([loadCollection('content/reports'),loadCollection('content/museum'),loadCollection('content/anchors')]);
+        reports.sort((a,b)=>new Date(b.date)-new Date(a.date));
+        reportsBox.innerHTML=reports.slice(0,3).map(r=>`<article class="card"><span class="badge">${r.category||'Reports'}</span><h3>${r.title_zh||''}</h3><p>${r.summary_zh||''}</p><div class="btn-row"><a class="btn secondary" href="article.html?slug=${r.slug||r._slug}">閱讀詳情 Details</a></div></article>`).join('') || '<article class="card">尚無報導內容，請由後台新增。No report yet.</article>';
+        museumBox.innerHTML=museum.slice(0,3).map(m=>`<article class="card"><span class="badge">${m.hall_zh||'Museum'}</span><h3>${m.title_zh||''}</h3><p>${m.subtitle_zh||''}</p><div class="btn-row"><a class="btn secondary" href="museum-item.html?slug=${m.slug||m._slug}">進入館藏 Detail</a></div></article>`).join('') || '<article class="card">尚無館藏內容，請由後台新增。No museum item yet.</article>';
+        anchors.sort((a,b)=>Number(a.order)-Number(b.order));
+        anchorsBox.innerHTML=anchors.slice(0,4).map(a=>`<article class="card profile-card"><img loading="lazy" src="${a.image}" alt="${a.name_zh}"><h3>${a.name_zh} ${a.name_en}</h3><p>${a.role_zh}</p></article>`).join('');
+      } catch (e) {
+        setError(reportsBox); setError(museumBox); setError(anchorsBox);
+      }
+    })();
+  </script>
+</body>
+</html>

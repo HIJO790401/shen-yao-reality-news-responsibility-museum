@@ -1,0 +1,44 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>an｜主播個人頁 Anchor Profile</title><meta name="description" content="十四軸主播與編輯部職能個人頁。"><meta property="og:type" content="profile" /><meta property="og:locale" content="zh_TW" /><meta name="twitter:card" content="summary_large_image" /><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/responsive.css"></head>
+<body data-depth=".."><main>
+<section class="page-hero"><div class="container"><p class="page-kicker">Anchor Profile</p><h1 id="anchor-title">an</h1><p id="anchor-sub">載入中 Loading...</p></div></section>
+<section class="section"><div id="anchor-content" class="container grid-2"></div></section>
+</main><script src="../js/ui.js"></script><script src="../js/cms-data.js"></script><script src="../js/main.js"></script>
+<script>
+(async()=>{
+  const slug='an';
+  const wrap=document.getElementById('anchor-content');
+  setLoading(wrap);
+  try{
+    const a=await loadBySlug('content/anchors',slug);
+    if(!a) return setError(wrap,'找不到此角色資料 Profile not found');
+    const embed=youtubeEmbed(a.youtube||'');
+    document.getElementById('anchor-title').textContent = `${a.name_zh} / ${a.name_en}`;
+    document.getElementById('anchor-sub').textContent = `${a.role_zh} ｜ ${a.role_en}`;
+    wrap.innerHTML = `
+      <article class="card profile-card">
+        <img loading="lazy" src="${a.image}" alt="${a.name_zh}">
+        <span class="badge">No.${a.order||''}</span>
+        <h3>角色定位 Role Identity</h3>
+        <p><strong>${a.bio_zh||''}</strong></p>
+        <p class="meta">${a.bio_en||''}</p>
+      </article>
+      <article class="card">
+        <h3>在新聞台的職責 Newsroom Function</h3>
+        <p>${a.newsroom_zh||''}</p>
+        <p>${a.newsroom_en||''}</p>
+      </article>
+      <article class="card">
+        <h3>在責任博物館的職責 Museum Function</h3>
+        <p>${a.museum_zh||''}</p>
+        <p>${a.museum_en||''}</p>
+      </article>
+      <article class="card">
+        <h3>主要處理議題 Core Responsibilities</h3>
+        <p>${a.duty_zh||''}</p>
+        <p>${a.duty_en||''}</p>
+        ${embed ? `<div style="margin-top:1rem"><iframe width="100%" height="250" src="${embed}" title="Anchor video" frameborder="0" allowfullscreen></iframe></div>` : '<div class="placeholder-video">尚未設定影片 No video configured.</div>'}
+      </article>`;
+  }catch(e){ setError(wrap); }
+})();
+</script>
+</body></html>

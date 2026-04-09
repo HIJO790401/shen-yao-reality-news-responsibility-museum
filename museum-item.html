@@ -1,0 +1,12 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>館藏詳情 Museum Item</title><meta name="description" content="責任博物館館藏詳情頁。"><link rel="canonical" href="https://charming-torrone-76a6a1.netlify.app/museum-item.html" /><meta property="og:type" content="article" /><meta property="og:locale" content="zh_TW" /><meta name="twitter:card" content="summary_large_image" /><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"></head>
+<body data-depth="."><main>
+<section class="page-hero"><div class="container"><p class="page-kicker">Museum Item</p><h1 id="museum-title">館藏詳情 Museum Detail</h1><p id="museum-sub">載入中 Loading...</p></div></section>
+<section class="section"><div class="container"><article id="museum-wrap" class="card"></article></div></section>
+</main><script src="js/ui.js"></script><script src="js/cms-data.js"></script>
+<script>
+(async()=>{const wrap=document.getElementById('museum-wrap');setLoading(wrap);const slug=new URLSearchParams(location.search).get('slug');if(!slug){setError(wrap,'缺少 slug 參數 Missing slug');return;}try{const m=await loadBySlug('content/museum',slug);if(!m){setError(wrap,'找不到館藏 Museum item not found');return;}
+document.getElementById('museum-title').textContent=`${m.title_zh||''}`;document.getElementById('museum-sub').textContent=`${m.title_en||''}`;
+const embed=youtubeEmbed(m.youtube||'');
+wrap.innerHTML=`<p class="meta">${m.id||''}｜${m.hall_zh||''} / ${m.hall_en||''}</p><h2>${m.title_zh||''}</h2><p>${m.subtitle_zh||''}</p><p class="meta">${m.subtitle_en||''}</p><div class="thumb">${m.cover?`<img src="${m.cover}" alt="${m.title_zh||''}">`:''}</div><h3>導覽 Guide</h3><p>${m.guide_zh||''}</p><p>${m.guide_en||''}</p><div class="content-body"><h3>中文內容</h3>${textToHtml(m.body_zh||'')}<h3>English Content</h3>${textToHtml(m.body_en||'')}</div>${embed?`<div style="margin-top:1rem"><iframe width="100%" height="360" src="${embed}" title="Museum video" frameborder="0" allowfullscreen></iframe></div>`:''}`;
+}catch(e){setError(wrap);}})();
+</script></body></html>

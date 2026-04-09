@@ -1,0 +1,12 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>博物館 Museum｜責任博物館</title><meta name="description" content="責任博物館館藏欄目：保存、編目、導覽、文明樣本回放。"><link rel="canonical" href="https://charming-torrone-76a6a1.netlify.app/museum.html" /><meta property="og:title" content="博物館 Museum｜責任博物館" /><meta property="og:description" content="責任館藏編目與導覽" /><meta property="og:type" content="website" /><meta property="og:locale" content="zh_TW" /><meta property="og:image" content="https://charming-torrone-76a6a1.netlify.app/assets/images/沈判你落印.jpg" /><meta name="twitter:card" content="summary_large_image" /><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"></head>
+<body data-depth="."><main>
+<section class="page-hero"><div class="container"><p class="page-kicker">Responsibility Museum</p><h1>博物館 Museum</h1><p>保存、編目、導覽與文明回放。A curated archive for responsibility specimens and civilizational replay.</p></div></section>
+<section class="section"><div class="container"><div id="hall-list" class="grid-4"></div></div></section>
+<section class="section"><div class="container"><div id="museum-list" class="grid-3"></div></div></section>
+</main><script src="js/ui.js"></script><script src="js/cms-data.js"></script><script src="js/main.js"></script>
+<script>
+(async()=>{const hall=document.getElementById('hall-list');const list=document.getElementById('museum-list');setLoading(hall);setLoading(list);try{const items=await loadCollection('content/museum');
+const halls=[...new Set(items.map(i=>i.hall_zh).filter(Boolean))]; hall.innerHTML=halls.map(h=>`<article class="card"><span class="badge">Hall</span><h3>${h}</h3></article>`).join('')||'<article class="card">尚無館別資料 No halls yet.</article>';
+list.innerHTML=items.map(m=>`<article class="card"><div class="thumb">${m.cover?`<img loading="lazy" src="${m.cover}" alt="${m.title_zh||''}">`:''}</div><span class="badge">${m.hall_zh||'Museum'}</span><h3>${m.title_zh||''}</h3><p>${m.title_en||''}</p><p>${m.subtitle_zh||''}</p><div class="btn-row"><a class="btn secondary" href="museum-item.html?slug=${m.slug||m._slug}">進入館藏 Detail</a>${m.youtube?`<a class="btn secondary" target="_blank" rel="noopener" href="${m.youtube}">影片 Video</a>`:''}</div></article>`).join('')||'<article class="card">目前無館藏，請至後台新增。No items yet.</article>';
+}catch(e){setError(hall);setError(list);}})();
+</script></body></html>
