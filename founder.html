@@ -1,18 +1,25 @@
 <!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Founder | 許文耀／沈耀888π</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"></head>
 <body data-depth="."><main>
-<section class="page-hero"><div class="container"><h1>創辦人 Founder</h1><p id="founder-name">許文耀／沈耀888π</p></div></section>
+<section class="page-hero"><div class="container"><h1>創辦人與最終責任 Founder</h1><p id="founder-name" class="hero-subtitle">許文耀／沈耀888π</p></div></section>
 <section class="section"><div id="founder-content" class="container grid-2"></div></section>
 </main><script src="js/ui.js"></script><script src="js/cms-data.js"></script><script src="js/main.js"></script>
 <script>
 (async()=>{const wrap=document.getElementById('founder-content');try{const f=(await loadCollection('content/founder'))[0];
 document.getElementById('founder-name').textContent=`${f.name_zh} / ${f.name_en}`;
 const embed=youtubeEmbed(f.youtube);
-wrap.innerHTML=`<article class="card profile-card"><img src="${f.image}" alt="創辦人照片"><h3>${f.name_zh}</h3><p>${f.name_en}</p></article>
-<article class="card"><h3>身份區 Identity</h3><ul class="inline-list"><li>地點：${f.location_zh}</li><li>Location: ${f.location_en}</li><li>${f.identity_zh}</li><li>${f.identity_en}</li></ul></article>
-<article class="card"><h3>宣言 Statement</h3><p>${f.statement_zh}</p><p>${f.statement_en}</p></article>
-<article class="card"><h3>聯絡 Contact</h3><p>Email：<a href="mailto:${f.email}">${f.email}</a></p><p>電話：<a href="tel:${f.phone}">${f.phone}</a></p></article>
-<article class="card"><h3>外部連結</h3><a class="btn primary" href="${f.website}" target="_blank" rel="noopener noreferrer">官方網站 Official Portal</a></article>
-<article class="card"><h3>影片區</h3>${embed?`<iframe width="100%" height="250" src="${embed}" title="Founder video" frameborder="0" allowfullscreen></iframe>`:'<div class="placeholder-video">Founder YouTube placeholder iframe</div>'}</article>`;
+const identityItems=(f.identity_list_zh||'').split('|').filter(Boolean);
+const identityItemsEn=(f.identity_list_en||'').split('|').filter(Boolean);
+const missionItems=(f.mission_zh||'').split('|').filter(Boolean);
+const missionItemsEn=(f.mission_en||'').split('|').filter(Boolean);
+const collabItems=(f.collaboration_zh||'').split('|').filter(Boolean);
+const collabItemsEn=(f.collaboration_en||'').split('|').filter(Boolean);
+wrap.innerHTML=`<article class="card profile-card"><img src="${f.image}" alt="創辦人照片"><h3>${f.name_zh}</h3><p class="name-en">${f.name_en}</p><p class="role-text">${f.identity_zh}</p><p class="meta">${f.identity_en}</p></article>
+<article class="card"><h3>Identity｜身份定位</h3><ul class="info-list">${identityItems.map(item=>`<li>${item}</li>`).join('')}${identityItemsEn.map(item=>`<li>${item}</li>`).join('')}</ul></article>
+<article class="card"><h3>Statement｜核心宣言</h3><p class="bilingual-line"><span class="zh">${f.statement_zh}</span><span class="en">${f.statement_en}</span></p></article>
+<article class="card"><h3>Mission｜平台任務</h3><ul class="info-list">${missionItems.map(item=>`<li>${item}</li>`).join('')}${missionItemsEn.map(item=>`<li>${item}</li>`).join('')}</ul></article>
+<article class="card"><h3>Collaboration｜合作方向</h3><ul class="info-list">${collabItems.map(item=>`<li>${item}</li>`).join('')}${collabItemsEn.map(item=>`<li>${item}</li>`).join('')}</ul></article>
+<article class="card"><h3>Contact｜聯絡方式</h3><p>Location: ${f.location_en}</p><p>Email：<a href="mailto:${f.email}">${f.email}</a></p><p>Phone：<a href="tel:${f.phone}">${f.phone}</a></p><a class="btn primary" href="${f.website}" target="_blank" rel="noopener noreferrer">官方網站 Official Portal</a></article>
+<article class="card"><h3>Video｜影像紀錄</h3>${embed?`<iframe width="100%" height="250" src="${embed}" title="Founder video" frameborder="0" allowfullscreen></iframe>`:'<div class="placeholder-video">Founder Video Frame</div>'}</article>`;
 }catch(e){wrap.innerHTML='<article class="card">創辦人資料載入失敗。</article>';}})();
 </script>
 </body></html>

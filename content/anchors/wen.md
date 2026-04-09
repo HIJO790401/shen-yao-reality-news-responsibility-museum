@@ -1,11 +1,25 @@
 ---
-slug: wen
-name_zh: 問
-name_en: Wen
-role_zh: 提問與追索主持
-role_en: Inquiry Lead
-bio_zh: 透過提問框架追索責任斷點與因果鏈。
-bio_en: Uses inquiry frameworks to trace responsibility gaps and causal links.
-image: /assets/images/沈問問之域.jpg
-youtube: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+slug: "wen"
+name_zh: "問"
+name_en: "Wen"
+role_zh: "Q&A 主播／互動提問導覽員"
+role_en: "Q&A Anchor / Interactive Inquiry Guide"
+one_line_zh: "把討論壓成可測問題的追問核。"
+one_line_en: "The inquiry axis that compresses debate into testable questions."
+newsroom_title_zh: "Q&A 主播／提問框架主持"
+newsroom_title_en: "Q&A Anchor / Inquiry Framework Host"
+newsroom_zh: "把鬆散議題轉換為可測問句，建立追問路徑與回答標準。"
+newsroom_en: "Transforms diffuse topics into testable questions with follow-up routes and answer standards."
+museum_title_zh: "互動提問導覽員"
+museum_title_en: "Interactive Inquiry Guide"
+museum_zh: "設計互動提問站，協助觀眾對館藏進行責任追索。"
+museum_en: "Designs interactive inquiry stations for accountability tracing in exhibits."
+responsibility_zh: "提高討論可測性，避免公共對話停留在口號層。"
+responsibility_en: "Raises testability in discourse and prevents slogan-level dead ends."
+signature_zh: "代表材料：提問樹、回答規格表、追問紀錄卡。"
+signature_en: "Signature materials: question trees, response specification sheets, and follow-up records."
+bio_zh: "提高討論可測性，避免公共對話停留在口號層。"
+bio_en: "Raises testability in discourse and prevents slogan-level dead ends."
+image: "/assets/images/沈問問之域.jpg"
+youtube: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 ---

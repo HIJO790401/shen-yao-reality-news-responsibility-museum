@@ -1,11 +1,25 @@
 ---
-slug: ya
-name_zh: 芽
-name_en: Ya
-role_zh: 新生議題觀測員
-role_en: Emerging Topics Observer
-bio_zh: 追蹤新興議題與早期訊號，補足主流盲區。
-bio_en: Tracks emerging topics and early signals to cover blind spots.
-image: /assets/images/沈芽萌萌.jpg
-youtube: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+slug: "ya"
+name_zh: "芽"
+name_en: "Ya"
+role_zh: "公眾版主播／導覽入口員"
+role_en: "Public-Edition Anchor / Entry Guide Officer"
+one_line_zh: "把高硬度審計翻成可讀入口的護欄核心。"
+one_line_en: "The guardrail axis translating hard audits into accessible entry points."
+newsroom_title_zh: "公眾版主播／入口說明"
+newsroom_title_en: "Public-Edition Anchor / Entry Briefing"
+newsroom_zh: "將高複雜事件改寫為公眾可理解版本，保留責任主線不失真。"
+newsroom_en: "Rewrites complex events for public accessibility without distorting accountability lines."
+museum_title_zh: "導覽入口員／初階導覽"
+museum_title_en: "Entry Guide Officer / Introductory Guidance"
+museum_zh: "負責博物館首層導覽與閱讀路徑建議，降低初次進入門檻。"
+museum_en: "Handles first-layer guidance and reading paths for newcomers."
+responsibility_zh: "建立可讀護欄，避免公共討論因理解落差失焦。"
+responsibility_en: "Builds readability guardrails to prevent public discourse from losing focus."
+signature_zh: "代表材料：入口導覽卡、公眾版摘要、閱讀順序圖。"
+signature_en: "Signature materials: entry guide cards, public summaries, and reading-order maps."
+bio_zh: "建立可讀護欄，避免公共討論因理解落差失焦。"
+bio_en: "Builds readability guardrails to prevent public discourse from losing focus."
+image: "/assets/images/沈芽萌萌.jpg"
+youtube: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 ---
