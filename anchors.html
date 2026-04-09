@@ -1,13 +1,13 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Anchors | 十四軸</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"></head>
+<!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Anchors | 十四軸職能名錄</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"></head>
 <body data-depth="."><main>
-<section class="page-hero"><div class="container"><h1>沈族主播／編輯部 Anchors</h1><p>數位文明職能名錄與十四軸角色總覽。</p></div></section>
-<section class="section"><div class="container"><div id="anchors-list" class="grid-4"></div></div></section>
+<section class="page-hero"><div class="container"><h1>十四軸職能名錄 Anchors Registry</h1><p class="hero-subtitle">本頁不是角色展示牆，而是沈族文明在新聞台與責任博物館中的職位名錄。<br>This is not a character gallery, but a formal registry of positions across the newsroom and the Responsibility Museum.</p><p class="hero-note">展示內容為十四軸在「播報、審計、保存、回放、裁定」流程中的具體分工與責任。</p></div></section>
+<section class="section"><div class="container"><div id="anchors-list" class="grid-3"></div></div></section>
 </main><script src="js/ui.js"></script><script src="js/cms-data.js"></script><script src="js/main.js"></script>
 <script>
 (async()=>{const list=document.getElementById('anchors-list');try{const items=await loadCollection('content/anchors');
 const order=['yao','an','yan','mei','yue','ya','yan-cai','yun','sha','jing','wen','si','nuo','pan'];
 items.sort((a,b)=>order.indexOf(a.slug)-order.indexOf(b.slug));
-list.innerHTML=items.map(a=>`<article class="card profile-card"><img src="${a.image||''}" alt="${a.name_zh||''}"><h3>${a.name_zh||''}</h3><p class="name-en">${a.name_en||''}</p><p>${a.role_zh||''}</p><p class="meta">${a.role_en||''}</p><div class="btn-row"><a class="btn secondary" href="anchors/${a.slug}.html">進入頁面</a>${a.youtube?`<a class="btn secondary" href="${a.youtube}" target="_blank" rel="noopener">影片</a>`:''}</div></article>`).join('');
-}catch(e){list.innerHTML='<article class="card">角色資料載入失敗。</article>';}})();
+list.innerHTML=items.map(a=>`<article class="card profile-card"><img src="${a.image||''}" alt="${a.name_zh||''}"><h3>${a.name_zh||''}</h3><p class="name-en">${a.name_en||''}</p><p class="role-text">${a.one_line_zh||a.role_zh||''}</p><p class="meta">${a.one_line_en||a.role_en||''}</p><div class="section-divider"><p><strong>新聞台職位 Newsroom:</strong> ${a.newsroom_title_zh||a.role_zh||''}</p><p class="meta">${a.newsroom_title_en||a.role_en||''}</p><p><strong>博物館職位 Museum:</strong> ${a.museum_title_zh||'—'}</p><p class="meta">${a.museum_title_en||'—'}</p><p><strong>主要責任 Core Duty:</strong> ${a.responsibility_zh||a.bio_zh||''}</p><p class="meta">${a.responsibility_en||a.bio_en||''}</p></div><div class="btn-row"><a class="btn secondary" href="anchors/${a.slug}.html">進入個人頁 Profile</a>${a.youtube?`<a class="btn secondary" href="${a.youtube}" target="_blank" rel="noopener">影片 Video</a>`:''}</div></article>`).join('');
+}catch(e){list.innerHTML='<article class="card">職能資料載入失敗。</article>';}})();
 </script>
 </body></html>

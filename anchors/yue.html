@@ -1,6 +1,6 @@
 <!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>yue | Anchors</title><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/responsive.css"></head>
 <body data-depth=".."><main>
-<section class="page-hero"><div class="container"><h1 id="anchor-title">yue</h1><p>十四軸角色個別頁骨架。</p></div></section>
+<section class="page-hero"><div class="container"><h1 id="anchor-title">yue</h1><p class="hero-subtitle">十四軸職能頁｜新聞台 × 責任博物館 Functional Profile</p></div></section>
 <section class="section"><div id="anchor-content" class="container grid-2"></div></section>
 </main><script src="../js/ui.js"></script><script src="../js/cms-data.js"></script><script src="../js/main.js"></script>
 <script>
@@ -17,27 +17,40 @@
       <article class="card profile-card">
         <img src="${a.image}" alt="${a.name_zh}">
         <h3>${a.name_zh}／${a.name_en}</h3>
-        <p>職位：${a.role_zh}</p>
-        <p class="meta">${a.role_en}</p>
+        <p class="role-text">${a.one_line_zh||a.role_zh||''}</p>
+        <p class="meta">${a.one_line_en||a.role_en||''}</p>
       </article>
       <article class="card">
-        <h3>角色職責 Role Scope</h3>
-        <p>${a.bio_zh}</p>
-        <p>${a.bio_en}</p>
+        <h3>Newsroom Function｜新聞台職能</h3>
+        <p><strong>職位：</strong>${a.newsroom_title_zh||a.role_zh||''}</p>
+        <p class="meta">${a.newsroom_title_en||a.role_en||''}</p>
+        <p>${a.newsroom_zh||a.bio_zh||''}</p>
+        <p class="meta">${a.newsroom_en||a.bio_en||''}</p>
       </article>
       <article class="card">
-        <h3>相關報導</h3>
-        <ul class="inline-list">
-          <li>可於 Reports 按分類追蹤此角色相關報導。</li>
-          <li>Follow related reports in the Reports section by category.</li>
-        </ul>
+        <h3>Museum Function｜博物館職能</h3>
+        <p><strong>職位：</strong>${a.museum_title_zh||'—'}</p>
+        <p class="meta">${a.museum_title_en||'—'}</p>
+        <p>${a.museum_zh||''}</p>
+        <p class="meta">${a.museum_en||''}</p>
       </article>
       <article class="card">
-        <h3>影片區</h3>
-        ${embed ? `<iframe width="100%" height="250" src="${embed}" title="Anchor video" frameborder="0" allowfullscreen></iframe>` : '<div class="placeholder-video">YouTube Embed Placeholder iframe</div>'}
+        <h3>Core Responsibilities｜核心責任</h3>
+        <p>${a.responsibility_zh||a.bio_zh||''}</p>
+        <p class="meta">${a.responsibility_en||a.bio_en||''}</p>
+      </article>
+      <article class="card">
+        <h3>Signature Materials｜代表材料</h3>
+        <p>${a.signature_zh||'代表圖卡、稿件與館藏索引將持續更新於本職位頁。'}</p>
+        <p class="meta">${a.signature_en||'Representative cards, reports, and collection references are updated in this profile.'}</p>
+      </article>
+      <article class="card">
+        <h3>Video｜影像紀錄</h3>
+        ${embed ? `<iframe width="100%" height="250" src="${embed}" title="Anchor video" frameborder="0" allowfullscreen></iframe>` : '<div class="placeholder-video">Anchor Video Frame</div>'}
+        <div class="section-divider"><p><strong>Footer Note：</strong>最終責任承擔者是：沈耀888π／許文耀。</p><p class="meta">Final responsibility bearer: Shen-Yao 888π / Wen-Yao Hsu.</p></div>
       </article>`;
   }catch(e){
-    wrap.innerHTML='<article class="card">角色資料載入失敗。</article>';
+    wrap.innerHTML='<article class="card">職能資料載入失敗。</article>';
   }
 })();
 </script>
