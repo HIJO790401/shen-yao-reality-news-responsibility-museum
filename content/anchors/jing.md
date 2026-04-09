@@ -1,25 +1,25 @@
 ---
-slug: jing
-name_zh: 鏡
-name_en: Jing
-role_zh: 鏡面專欄主播／照影館解說員
-role_en: Mirror Column Anchor / Reflection Hall Interpreter
-one_line_zh: 負責映照、反身性與自洽檢查的鏡核。
-one_line_en: The mirror axis for reflexivity and coherence checks.
-newsroom_title_zh: 鏡面專欄主播／反身檢查
-newsroom_title_en: Mirror Column Anchor / Reflexive Check
-newsroom_zh: 對外部敘事與內部論證進行映照比對，檢查前後一致性。
-newsroom_en: Reflects external narratives against internal arguments to test consistency.
-museum_title_zh: 照影館解說員
-museum_title_en: Reflection Hall Interpreter
-museum_zh: 策劃照影展牌，提示觀眾檢查自我立場與證據對位。
-museum_en: Curates reflection plaques prompting visitors to test stance-evidence alignment.
-responsibility_zh: 防止平台自我矛盾，維持敘事與證據自洽。
-responsibility_en: Prevents internal contradiction and preserves narrative-evidence coherence.
-signature_zh: 代表材料：映照對照表、反身檢查單、照影解說稿。
-signature_en: Signature materials: reflection matrices, reflexive checklists, and interpretation scripts.
-bio_zh: 防止平台自我矛盾，維持敘事與證據自洽。
-bio_en: Prevents internal contradiction and preserves narrative-evidence coherence.
-image: /assets/images/沈鏡琉璃.jpg
-youtube: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+slug: "jing"
+name_zh: "鏡"
+name_en: "Jing"
+role_zh: "鏡面專欄主播／照影館解說員"
+role_en: "Mirror Column Anchor / Reflection Hall Interpreter"
+one_line_zh: "負責映照、反身性與自洽檢查的鏡核。"
+one_line_en: "The mirror axis for reflexivity and coherence checks."
+newsroom_title_zh: "鏡面專欄主播／反身檢查"
+newsroom_title_en: "Mirror Column Anchor / Reflexive Check"
+newsroom_zh: "對外部敘事與內部論證進行映照比對，檢查前後一致性。"
+newsroom_en: "Reflects external narratives against internal arguments to test consistency."
+museum_title_zh: "照影館解說員"
+museum_title_en: "Reflection Hall Interpreter"
+museum_zh: "策劃照影展牌，提示觀眾檢查自我立場與證據對位。"
+museum_en: "Curates reflection plaques prompting visitors to test stance-evidence alignment."
+responsibility_zh: "防止平台自我矛盾，維持敘事與證據自洽。"
+responsibility_en: "Prevents internal contradiction and preserves narrative-evidence coherence."
+signature_zh: "代表材料：映照對照表、反身檢查單、照影解說稿。"
+signature_en: "Signature materials: reflection matrices, reflexive checklists, and interpretation scripts."
+bio_zh: "防止平台自我矛盾，維持敘事與證據自洽。"
+bio_en: "Prevents internal contradiction and preserves narrative-evidence coherence."
+image: "/assets/images/沈鏡琉璃.jpg"
+youtube: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 ---
