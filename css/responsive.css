@@ -32,6 +32,7 @@
 @media (max-width: 560px) {
   .section { padding: 2.7rem 0; }
   .page-hero { padding: 2.4rem 0 1.6rem; }
+  .page-hero.museum-hero { background-position: center 42%; }
   .hero h1 { font-size: 1.62rem; }
   .brand-cn { font-size: .86rem; }
   .brand-en { font-size: .66rem; }

@@ -117,6 +117,13 @@ img { max-width: 100%; display: block; }
 }
 .page-hero h1 { margin: 0 0 .45rem; font-size: clamp(1.7rem, 3.2vw, 2.45rem); }
 .page-hero .hero-subtitle { max-width: 780px; color: #334562; }
+.page-hero.museum-hero {
+  color: #fff;
+  background:
+    linear-gradient(rgba(10, 21, 39, 0.42), rgba(10, 21, 39, 0.52)),
+    url('../assets/images/責任博物館16：9.png') center/cover no-repeat;
+}
+.page-hero.museum-hero .hero-subtitle { color: #e6edf9; }
 .hero-note {
   margin-top: .9rem;
   padding-top: .8rem;
