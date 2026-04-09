@@ -46,8 +46,11 @@ function parseFrontMatter(markdown) {
     }
 
     if (currentKey) {
-      buffer.push(line.replace(/^\s{2}/, ''));
-      return;
+      if (/^\s{2,}/.test(line)) {
+        buffer.push(line.replace(/^\s{2}/, ''));
+        return;
+      }
+      flushBuffer();
     }
 
     const kvMatch = line.match(/^([a-zA-Z0-9_]+):\s*(.*)$/);
