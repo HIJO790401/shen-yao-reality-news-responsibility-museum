@@ -11,7 +11,8 @@ summary_en: >
   deal itself, but who defines AI, who verifies editorial independence, and who
   bears the consequences.
 date: 2026-04-09
-category: Audit
+category: Audit 責任蒸發館 Responsibility Evaporation Hall
+cover: /assets/uploads/1000040003.png
 youtube: https://youtu.be/hWQ66POkyYE?si=xYh01o9kEyof_K9g
 body_zh: >
   這裡是沈耀國際實相新聞台。
