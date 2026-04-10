@@ -31,11 +31,10 @@ website: https://hijo790401.github.io/shen-yao-portal/
 image: /assets/images/沈耀主核.jpg
 youtube: https://youtu.be/xROrsIHToIY?si=cwR-yAUw4eEMjzeZ
 external_activity_title_zh: >-
-  去偽存真：AI 全民偵查黑客松｜現場演說與反詐治理系統展示
+  去偽存真：AI 全民偵查黑客松｜現場演說與系統展示
 
-  External Activity Title EN
 
-  Agent for Truth: Disinformation Defense Hackathon | Live Presentation and Anti-Scam Governance System Demo
+  Agent for Truth: Disinformation Defense Hackathon | Live Presentation and System Demo
 external_activity_title_en: >-
   2026 年 3 月，許文耀／沈耀888π 以 Gogolook Team 11 參與「去偽存真：AI 全民偵查黑客松」，於現場公開展示 SCBKR +
   R-Lock
@@ -46,5 +45,5 @@ external_activity_title_en: >-
   Introduction EN
 
   In March 2026, Wen-Yao Hsu / Shen-Yao 888π participated in the Agent for Truth: Disinformation Defense Hackathon as part of Gogolook Team 11, where he publicly presented the SCBKR + R-Lock anti-scam governance system. The core of the project was not merely to classify whether a message looked like fraud, but to audit whether it carried enough verifiable responsibility structure to qualify for human decision-making. The presentation included slides, a live system demo, and judge Q&A exchanges, showing his ability to bring semantic governance, responsibility chains, rule-based adjudication, and replayable structure into a real public setting. For him, the hackathon was not just a competition, but a field test of the decision-preceding governance layer in the real world.
-external_activity_photo: /assets/uploads/_ray4878.jpg-的副本.jpg
+external_activity_photo: /assets/uploads/_ray4873.jpg-的副本.jpg
 ---
