@@ -18,4 +18,7 @@ phone: "0905851391"
 website: "https://hijo790401.github.io/shen-yao-portal/"
 image: "/assets/images/沈耀主核.jpg"
 youtube: "https://youtu.be/xROrsIHToIY?si=cwR-yAUw4eEMjzeZ"
+external_activity_title_zh: "對外活動紀錄：可在此填寫例如黑客松、論壇、演講等活動摘要。"
+external_activity_title_en: "External activity record: e.g., hackathons, forums, talks, and outreach events."
+external_activity_photo: ""
 ---

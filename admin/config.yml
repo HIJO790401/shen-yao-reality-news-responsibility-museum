@@ -130,3 +130,6 @@ collections:
           - { label: "Website", name: "website", widget: "string" }
           - { label: "Image", name: "image", widget: "image" }
           - { label: "YouTube URL", name: "youtube", widget: "string", required: false }
+          - { label: "External Activity Title ZH", name: "external_activity_title_zh", widget: "text", required: false }
+          - { label: "External Activity Title EN", name: "external_activity_title_en", widget: "text", required: false }
+          - { label: "External Activity Photo", name: "external_activity_photo", widget: "image", required: false }
