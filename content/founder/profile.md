@@ -27,10 +27,23 @@ collaboration_en: News Collaboration|Research Collaboration|Curatorial
   Collaboration|Platform Collaboration
 email: ken0963521@gmail.com
 phone: "0905851391"
-website: "https://hijo790401.github.io/shen-yao-portal/"
-image: "/assets/images/沈耀主核.jpg"
-youtube: "https://youtu.be/xROrsIHToIY?si=cwR-yAUw4eEMjzeZ"
-external_activity_title_zh: "對外活動紀錄：可在此填寫例如黑客松、論壇、演講等活動摘要。"
-external_activity_title_en: "External activity record: e.g., hackathons, forums, talks, and outreach events."
-external_activity_photo: ""
+website: https://hijo790401.github.io/shen-yao-portal/
+image: /assets/images/沈耀主核.jpg
+youtube: https://youtu.be/xROrsIHToIY?si=cwR-yAUw4eEMjzeZ
+external_activity_title_zh: >-
+  2026 年 3 月，我以 Gogolook Team 11 成員身分參與「去偽存真：AI 全民偵查黑客松」，並在現場展示我設計的 SCBKR +
+  R-Lock 反詐治理系統。
+
+  我做的不是單純判斷訊息像不像詐騙，而是往前追問：這段訊息是否具備足夠可驗證的責任結構，是否值得進入人的決策流程。
+
+  這次活動對我來說，不只是一次比賽或 demo，而是我第一次把語意治理、責任鏈、規則裁決與決策前審計的核心邏輯，正式帶進公開場域，直接面對評審、現場提問與真實交流。
+external_activity_title_en: >-
+  In March 2026, I participated in the Agent for Truth: Disinformation Defense
+  Hackathon as part of Gogolook Team 11, where I presented my SCBKR + R-Lock
+  anti-scam governance system.
+
+  What I built was not a simple scam-classification tool. I was asking a prior question: whether a message carries enough verifiable responsibility structure to qualify for human decision-making.
+
+  For me, this event was not just a competition or a demo. It was the first time I formally brought my core logic of semantic governance, responsibility chains, rule-based adjudication, and pre-decision audit into a public setting.
+external_activity_photo: /assets/uploads/_ray4873.jpg-的副本.jpg
 ---
