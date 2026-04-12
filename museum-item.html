@@ -25,10 +25,17 @@
 
     const embed=youtubeEmbed(item.youtube);
     wrap.innerHTML=`
+      <article class="card">
+        <h3>New video</h3>
+        ${embed?`<div class="video-portrait"><iframe src="${embed}" title="Museum video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>`:'<div class="placeholder-video">尚未提供影片連結。</div>'}
+        <div class="btn-row">
+          ${item.youtube?`<a class="btn secondary" href="${item.youtube}" target="_blank" rel="noopener">前往 YouTube</a>`:''}
+          <a class="btn secondary" href="museum.html">返回 Museum</a>
+        </div>
+      </article>
       <article class="card article-detail">
         <p class="meta">館藏編號 Registry ID: ${item.id||''}｜館別 Hall: ${item.hall_zh||''}</p>
         <p class="meta">Hall EN: ${item.hall_en||''}</p>
-        ${item.cover?`<div class="thumb"><img src="${item.cover}" alt="${item.title_zh||''}" style="width:100%;height:100%;object-fit:cover;"></div>`:''}
         <h2>${item.title_zh||''}</h2>
         <p class="meta">${item.title_en||''}</p>
         <div class="section-divider">
@@ -44,14 +51,7 @@
           <div class="article-body article-body-en">${textToHtml(item.body_en||'')}</div>
         </div>
       </article>
-      <article class="card">
-        <h3>影片 Video（9:16）</h3>
-        ${embed?`<div class="video-portrait"><iframe src="${embed}" title="Museum video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>`:'<div class="placeholder-video">尚未提供影片連結。</div>'}
-        <div class="btn-row">
-          ${item.youtube?`<a class="btn secondary" href="${item.youtube}" target="_blank" rel="noopener">前往 YouTube</a>`:''}
-          <a class="btn secondary" href="museum.html">返回 Museum</a>
-        </div>
-      </article>`;
+      ${item.cover?`<article class="card"><h3>圖卡 Cover</h3><div class="thumb"><img src="${item.cover}" alt="${item.title_zh||''}" style="width:100%;height:100%;object-fit:cover;"></div></article>`:''}`;
   }catch(e){
     wrap.innerHTML='<article class="card">館藏資料載入失敗或不存在，請返回列表重試。</article>';
     document.getElementById('museum-item-subtitle').textContent='Load failed';
