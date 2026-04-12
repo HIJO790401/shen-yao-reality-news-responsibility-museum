@@ -14,6 +14,7 @@ summary_en: >
   civilization.
 date: 2026-04-10
 category: Audit
+cover: /assets/uploads/沈閱責任數學報導.png
 youtube: https://youtu.be/7pPkglkjTzE?si=YU-7CNs91s1eQl31
 body_zh: >
   這裡是沈耀國際新聞台。  
