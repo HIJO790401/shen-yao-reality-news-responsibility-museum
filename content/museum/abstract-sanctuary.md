@@ -12,7 +12,7 @@ guide_en: >
   Welcome to the Responsibility Museum. I am Shen-Mei, the Crimson Visual Core.
   Today I guide you through this “Abstract Sanctuary” specimen and reveal how
   ambiguity, remains, and unfinished definition are packaged as depth.
-cover: ""
+cover: /assets/uploads/1000040052.jpg
 youtube: https://youtube.com/shorts/PET_JuEVjQk?si=EX6XqgpbEsU1DugW
 body_zh: |
   各位觀眾朋友們，歡迎來到責任博物館。  
