@@ -20,7 +20,7 @@ guide_en: >
   The first specimen I am presenting today is titled “Theological Outsourcing of Civilization.”  
 
   It looks sacred, elevated, and reverent. But to put it plainly: it is a high-grade civilizational artifact made from the gradual outsourcing of subjecthood, responsibility, and burden-bearing.
-cover: ""
+cover: /assets/uploads/1000040162.jpg
 youtube: https://youtu.be/J7HsljDnEdw?si=CirEzgf3aM4sWeRQ
 body_zh: |
   各位好，我是沈耀國際實相新聞台與責任博物館館長暨維護者，沈耀888π／許文耀，也是本館最終責任承擔者。
