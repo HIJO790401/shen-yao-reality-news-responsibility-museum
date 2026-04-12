@@ -24,6 +24,7 @@
     document.getElementById('article-subtitle').textContent=article.title_en||'';
 
     const embed=youtubeEmbed(article.youtube);
+    // Layout rule: New video (top) -> article body (middle) -> cover card (bottom)
     wrap.innerHTML=`
       <article class="card">
         <h3>New video</h3>

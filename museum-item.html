@@ -24,6 +24,7 @@
     document.getElementById('museum-item-subtitle').textContent=item.title_en||'';
 
     const embed=youtubeEmbed(item.youtube);
+    // Layout rule: New video (top) -> museum body (middle) -> cover card (bottom)
     wrap.innerHTML=`
       <article class="card">
         <h3>New video</h3>
