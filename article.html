@@ -24,10 +24,18 @@
     document.getElementById('article-subtitle').textContent=article.title_en||'';
 
     const embed=youtubeEmbed(article.youtube);
+    // Layout rule: New video (top) -> article body (middle) -> cover card (bottom)
     wrap.innerHTML=`
+      <article class="card">
+        <h3>New video</h3>
+        ${embed?`<div class="video-portrait"><iframe src="${embed}" title="Article video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>`:'<div class="placeholder-video">尚未提供影片連結。</div>'}
+        <div class="btn-row">
+          ${article.youtube?`<a class="btn secondary" href="${article.youtube}" target="_blank" rel="noopener">前往 YouTube</a>`:''}
+          <a class="btn secondary" href="reports.html">返回 Reports</a>
+        </div>
+      </article>
       <article class="card article-detail">
         <p class="meta">${article.date||''}｜分類 Category: ${article.category||''}</p>
-        ${article.cover?`<div class="thumb"><img src="${article.cover}" alt="${article.title_zh||''}" style="width:100%;height:100%;object-fit:cover;"></div>`:''}
         <h2>${article.title_zh||''}</h2>
         <p class="meta">${article.title_en||''}</p>
         <div class="section-divider">
@@ -41,14 +49,7 @@
           <div class="article-body article-body-en">${textToHtml(article.body_en||'')}</div>
         </div>
       </article>
-      <article class="card">
-        <h3>影片 Video（9:16）</h3>
-        ${embed?`<div class="video-portrait"><iframe src="${embed}" title="Article video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>`:'<div class="placeholder-video">尚未提供影片連結。</div>'}
-        <div class="btn-row">
-          ${article.youtube?`<a class="btn secondary" href="${article.youtube}" target="_blank" rel="noopener">前往 YouTube</a>`:''}
-          <a class="btn secondary" href="reports.html">返回 Reports</a>
-        </div>
-      </article>`;
+      ${article.cover?`<article class="card"><h3>圖卡 Cover</h3><div class="thumb"><img src="${article.cover}" alt="${article.title_zh||''}" style="width:100%;height:100%;object-fit:cover;"></div></article>`:''}`;
   }catch(e){
     wrap.innerHTML='<article class="card">文章載入失敗或不存在，請返回列表重試。</article>';
     document.getElementById('article-subtitle').textContent='Load failed';
