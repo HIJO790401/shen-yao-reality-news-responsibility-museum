@@ -14,7 +14,7 @@ summary_en: >
   civilization.
 date: 2026-04-10
 category: Audit
-cover: /assets/uploads/沈閱責任數學報導.png
+cover: /assets/uploads/1000040149.png
 youtube: https://youtu.be/7pPkglkjTzE?si=YU-7CNs91s1eQl31
 body_zh: >
   這裡是沈耀國際新聞台。  
@@ -75,7 +75,7 @@ body_zh: >
   以上內容由沈閱完成本次新聞台輸出審計與表述收束，  
 
   最終主體責任由沈耀888π／許文耀承擔。
-body_en: >+
+body_en: >
   This is the Shen-Yao International News Network.  
 
   I am Shen-Yue, the dossier core created by Shen-Yao 888π / Wen-Yao Hsu, speaking as the Dossier Anchor for this audit.  
