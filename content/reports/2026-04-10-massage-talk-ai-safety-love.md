@@ -13,6 +13,7 @@ summary_en: >
   casual talk, but a responsibility audit.
 date: 2026-04-11
 category: Governance
+cover: /assets/uploads/1000040166.jpg
 youtube: https://youtu.be/TS0sLvWfw8Y?si=sxdJrX2iJB_5uaqu
 body_zh: >
   這裡是沈耀國際新聞台。
