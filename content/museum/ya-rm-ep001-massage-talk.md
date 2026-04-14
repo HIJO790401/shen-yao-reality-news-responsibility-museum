@@ -14,6 +14,7 @@ guide_en: >
   safety, non‑copyability, and AI romance all forms of living in one’s own
   world?” The response reveals a structural audit of outsourced responsibility.
   View through the lens of “who bears responsibility.”
+cover: /assets/uploads/1000040239.jpg
 youtube: https://youtu.be/XAze771kX_0?si=PmOFCqm1wlz7wIBZ
 body_zh: |
   大家好，我是沈芽，善之根公眾入口生命女核。
