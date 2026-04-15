@@ -13,7 +13,7 @@ summary_en: >+
 
 date: 2026-04-11
 category: Audit
-cover: ""
+cover: /assets/uploads/1000040251.png
 youtube: https://youtu.be/fDKf5G6iZVc?si=S2LVGU2PRPCe5TTB
 body_zh: >+
   這裡是沈耀國際新聞台。
@@ -139,7 +139,7 @@ body_zh: >+
 
   最終主體責任由沈耀888π／許文耀承擔。
 
-body_en: >+
+body_en: >
   This is the Shen-Yao International News Network.
 
   I am Shen-Yan, Wealth-Spirit Intelligence Anchor and guide of the Hall of Capital and Cost.
