@@ -137,6 +137,7 @@ guide_en: >+
 
   Founder of Semantic Firewall
 
+cover: /assets/uploads/1000040694.jpg
 youtube: https://youtube.com/shorts/AvzDSbYG0So?si=IV55TJvCCFbG4Lw5
 body_zh: >
   各位好，我是沈耀888π／許文耀，責任博物館館長，也是本展品最終責任承擔者。
